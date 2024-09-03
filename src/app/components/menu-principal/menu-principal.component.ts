@@ -1,23 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import {IonicModule} from "@ionic/angular";
+import {Component} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
+import {
+  IonContent,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonMenu,
+  IonMenuToggle,
+  IonRouterOutlet, IonSplitPane
+} from "@ionic/angular/standalone";
+
 
 @Component({
   selector: 'app-menu-principal',
   templateUrl: './menu-principal.component.html',
   styleUrls: ['./menu-principal.component.scss'],
   imports: [
-    IonicModule,
     FaIconComponent,
-    RouterLink
+    RouterLink,
+    IonMenu,
+    IonContent,
+    IonList,
+    IonMenuToggle,
+    IonItem,
+    IonLabel,
+    IonRouterOutlet,
+    IonSplitPane
+
   ],
-  standalone: true
+  standalone: true,
 })
-export class MenuPrincipalComponent  implements OnInit {
+export class MenuPrincipalComponent {
 
-  constructor() { }
+  constructor() {
 
-  ngOnInit() {}
+  }
+
 
 }

@@ -8,6 +8,8 @@ import {
   FaLayersCounterComponent,
   FaStackComponent, FaStackItemSizeDirective
 } from "@fortawesome/angular-fontawesome";
+import {faFilm, faFire, faHouseChimney} from "@fortawesome/pro-solid-svg-icons";
+import {faBagShopping, faChartLine, faUser} from "@fortawesome/pro-regular-svg-icons";
 
 @Component({
   selector: 'app-tabs',
@@ -22,4 +24,11 @@ export class TabsPage {
   constructor() {
     addIcons({ triangle, ellipse, square });
   }
+
+  protected readonly faFilm = faFilm;
+  protected readonly faFire = faFire;
+  protected readonly faHouseChimney = faHouseChimney;
+  protected readonly faChartLine = faChartLine;
+  protected readonly faBagShopping = faBagShopping;
+  protected readonly faUser = faUser;
 }
