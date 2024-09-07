@@ -1,12 +1,36 @@
 <ion-split-pane contentId="main-content" when="(min-width: 999999px)">
-  <ion-menu type="overlay" contentId="main-content"  >
+  <ion-menu type="overlay" contentId="main-content">
+
+
     <ion-content>
+      <div class="profile-section">
+        <div class="profile-section-1">
+          <ion-avatar>
+            <img ngSrc="assets/usua.jpg" alt="User Avatar" height="877" width="719">
+          </ion-avatar>
+          <h2>usuario</h2>
+        </div>
+        <div class="profile-section-2">
+          <div class="profile-section-3">
+            <a class="icono-menu">
+              <fa-icon [icon]="faGear"></fa-icon>
+            </a>
+
+          </div>
+          <div class="profile-section-4">
+            <a class="link-editar">
+             Editar
+            </a>
+
+          </div>
+        </div>
+      </div>
 
 
       <ion-list>
         <ion-menu-toggle autoHide="false">
-          <ion-item button routerLink="/tabs/tab1" >
-            <ion-label>🏠 Inicio </ion-label>
+          <ion-item button routerLink="/tabs/tab1">
+            <ion-label>🏠 Inicio</ion-label>
           </ion-item>
         </ion-menu-toggle>
 
@@ -19,7 +43,7 @@
 
         <ion-menu-toggle autoHide="false">
           <ion-item button routerLink="/tabs/tab2">
-            <ion-label>🤩 Novedades </ion-label>
+            <ion-label>🤩 Novedades</ion-label>
           </ion-item>
         </ion-menu-toggle>
 
@@ -47,6 +71,6 @@
     </ion-content>
   </ion-menu>
 
-  <ion-router-outlet id="main-content" ></ion-router-outlet>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-split-pane>
 

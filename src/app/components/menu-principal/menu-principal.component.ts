@@ -2,14 +2,18 @@ import {Component} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {
-  IonContent,
+  IonAvatar,
+  IonButton, IonButtons,
+  IonContent, IonHeader, IonIcon,
   IonItem,
   IonLabel,
   IonList,
   IonMenu,
   IonMenuToggle,
-  IonRouterOutlet, IonSplitPane
+  IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar
 } from "@ionic/angular/standalone";
+import {NgOptimizedImage} from "@angular/common";
+import {faGear} from "@fortawesome/pro-regular-svg-icons";
 
 
 @Component({
@@ -26,7 +30,15 @@ import {
     IonItem,
     IonLabel,
     IonRouterOutlet,
-    IonSplitPane
+    IonSplitPane,
+    IonHeader,
+    IonButton,
+    IonAvatar,
+    IonToolbar,
+    IonTitle,
+    IonButtons,
+    IonIcon,
+    NgOptimizedImage
 
   ],
   standalone: true,
@@ -38,4 +50,5 @@ export class MenuPrincipalComponent {
   }
 
 
+  protected readonly faGear = faGear;
 }

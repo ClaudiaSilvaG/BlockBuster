@@ -22,6 +22,17 @@ const config: CapacitorConfig = {
       useDialog: true,
     },
   },
+  android:{
+    allowMixedContent:true
+  },
+  server:{
+    allowNavigation:[
+      "desarrollo.codemaker.cl",
+      "media.themoviedb.org",
+      "image.tmdb.org"
+    ],
+    cleartext:true
+  }
 };
 
 export default config;
