@@ -4,7 +4,9 @@ import {
   IonRouterOutlet, MenuController
 } from '@ionic/angular/standalone';
 import {FaIconLibrary} from "@fortawesome/angular-fontawesome";
+import { register } from 'swiper/element/bundle';
 
+register()
 // import {all} from "@awesome.me/kit-424812913b/icons";
 
 @Component({
