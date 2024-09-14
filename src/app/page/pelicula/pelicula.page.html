@@ -1,0 +1,53 @@
+<ion-header [translucent]="false" mode="mode">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title >
+      <span> Pelicula 🔥</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <a (click)="onBackButton()" class="buton-volver">
+        <fa-icon [icon]="faCaretLeft"></fa-icon> Volver
+      </a>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+
+  <h2>{{pelicula?.Titulo}}</h2>
+  <div class="image">
+    <img [src]="pelicula?.Imagen" alt="{{pelicula?.Titulo}}">
+  </div>
+
+  <ion-button expand="block" color="primary" style="margin-bottom: 6px" (click)="addPedido()" >Comprar</ion-button>
+  <ion-button expand="block" color="primary" style="margin-bottom: 16px" (click)="addWatchlist()">Agregar a Watchlist</ion-button>
+
+
+  <ng-container >
+    <strong>Precio</strong>
+    <p>$ {{pelicula?.Precio??0 | numberformat:0}}</p>
+  </ng-container>
+  <ng-container *ngIf="pelicula?.Resumen">
+    <strong>Resumen</strong>
+    <p>{{pelicula?.Resumen}}</p>
+  </ng-container>
+  <ng-container *ngIf="pelicula?.Fecha">
+    <strong>Fecha estreno</strong>
+    <p>{{pelicula?.Fecha}}</p>
+  </ng-container>
+  <ng-container *ngIf="pelicula?.Duracion">
+    <strong>Duración</strong>
+    <p>{{pelicula?.Duracion}}</p>
+  </ng-container>
+  <ng-container *ngIf="pelicula?.Categorias">
+    <strong>Categorias</strong>
+    <p>{{pelicula?.Categorias}}</p>
+  </ng-container>
+  <ng-container *ngIf="pelicula?.Puntuacion">
+    <strong>Puntuacion</strong>
+    <p>{{pelicula?.Puntuacion}}</p>
+  </ng-container>
+</ion-content>

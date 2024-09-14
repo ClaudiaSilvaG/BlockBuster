@@ -1,0 +1,30 @@
+<div class="pelicula-card-container"  >
+  <div class="page-front page-side">
+    <div   class="pelicula-card"   (click)=" onCardClick()">
+      <img [src]="pelicula.Imagen" alt="{{pelicula.Titulo}}" class="pelicula-imagen" />
+      <div class="pelicula-data">
+        <div class="pelicula-precio">$ {{pelicula.Precio | numberformat:0}}</div>
+        <div class="pelicula-titulo">{{pelicula.Titulo}}</div>
+      </div>
+
+    </div>
+    <div class="peliculas-card-options">
+      <ion-button (click)="onAddWatchList()" [color]="isWatchlisted?'danger':'primary'">
+        <fa-icon [icon]="faStar"></fa-icon>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+      <ion-button (click)="onAddCart()" [color]="isOnCart?'danger':'primary'">
+        <fa-icon [icon]="faPlus"></fa-icon>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+    </div>
+  </div>
+<!--  <div class="page-back page-side">-->
+<!--    <div class="pelicula-card-back">-->
+<!--      <strong>Sinopsis</strong>-->
+<!--      <p>{{pelicula.Resumen}}</p>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+</div>
