@@ -10,6 +10,9 @@ import {
 } from "@fortawesome/angular-fontawesome";
 import {faFilm, faFire, faHouseChimney} from "@fortawesome/pro-solid-svg-icons";
 import {faBagShopping, faChartLine, faUser} from "@fortawesome/pro-regular-svg-icons";
+import {BarcodeScanner} from "@capacitor-mlkit/barcode-scanning";
+import {AlertController} from "@ionic/angular";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tabs',
@@ -21,7 +24,8 @@ import {faBagShopping, faChartLine, faUser} from "@fortawesome/pro-regular-svg-i
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
-  constructor() {
+  constructor(private alertController: AlertController,
+              private router: Router) {
     addIcons({ triangle, ellipse, square });
   }
 
@@ -31,4 +35,41 @@ export class TabsPage {
   protected readonly faChartLine = faChartLine;
   protected readonly faBagShopping = faBagShopping;
   protected readonly faUser = faUser;
+
+  onQr($event: MouseEvent) {
+    $event.preventDefault();
+    this.scan().then((result) => {
+      console.log("QR Code: ", result);
+      //si el qr inicia con "appbb://pelicula/" se redirige a la página de la película
+      if (result.startsWith("appbb://pelicula/")) {
+        let id = result.split("/").pop();
+        console.log("ID: ", id);
+        this.router.navigate(['/tabs/pelicula', id]);
+      }
+    });
+  }
+
+  async scan(): Promise<string> {
+    const granted = await this.requestPermissions();
+    if (!granted) {
+      this.presentAlert();
+      return "";
+    }
+    const { barcodes } = await BarcodeScanner.scan();
+    //retorna el primer código de barras encontrado
+    return barcodes[0].rawValue;
+  }
+  async requestPermissions(): Promise<boolean> {
+    const { camera } = await BarcodeScanner.requestPermissions();
+    return camera === 'granted' || camera === 'limited';
+  }
+
+  async presentAlert(): Promise<void> {
+    const alert = await this.alertController.create({
+      header: 'Permiso denegado',
+      message: 'Porfavor permita el acceso a la camara.',
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
 }

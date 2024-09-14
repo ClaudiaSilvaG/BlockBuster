@@ -15,9 +15,13 @@
   <p class="section-subtitle">Vive toda la emoción de las películas en estreno.</p>
 
   <div class="peliculas-grid">
-    <div class="pelicula-card" *ngFor="let pelicula of Peliculas">
-      <img [src]="pelicula.Imagen" alt="{{pelicula.Titulo}}" class="pelicula-imagen" />
-      <div class="pelicula-titulo">{{pelicula.Titulo}}</div>
-    </div>
+    <app-pelicula-card-big [pelicula]="pelicula" *ngFor="let pelicula of Peliculas"></app-pelicula-card-big>
+
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+
   </div>
 </ion-content>

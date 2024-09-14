@@ -32,6 +32,16 @@ export const routes: Routes = [
           import('../tab5/tab5.page').then( m => m.Tab5Page)
       },
       {
+        //el path de pelicula soporta el id de la pelicula
+        path: 'pelicula/:id',
+        loadComponent: () => import('../page/pelicula/pelicula.page').then( m => m.PeliculaPage)
+      },
+      {
+
+        path: 'watchlist',
+        loadComponent: () => import('../page/watchlist/watchlist.page').then( m => m.WatchlistPage)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full',
