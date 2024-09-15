@@ -33,17 +33,16 @@ export class Tab1Page {
   }
 
   //--------------------------------------------------------------------------------------------------------------------//
-  // ---------                      PROMESA PARA SOLICITAR PELÍCULAS CONTINUAR VIENDO                          ---------//
+  // ---------                      PROMESA PARA SOLICITAR PELÍCULAS TENDENCIAS GLOBALES                       ---------//
   // -------------------------------------------------------------------------------------------------------------------//
-  continuarViendo: any[] = []; // Lista para almacenar películas continuar viendo
+  peliculasTendencia: any[] = []; // Lista para almacenar películas continuar viendo
 
   constructor(private apiPeliculas: ApiPeliculasService) { } // Inyectamos el servicio
 
   ngOnInit() {
-    this.apiPeliculas.getPeliculasTendencia(15).subscribe((data) => {
-      this.continuarViendo = data as any[];
-      console.log("Películas: ", this.continuarViendo);
-
+    this.apiPeliculas.getPeliculas(15, 0, "puntuacion").subscribe((data) => {
+      this.peliculasTendencia = data as any[];
+      console.log("Películas: ", this.peliculasTendencia);
     });
   }
 
