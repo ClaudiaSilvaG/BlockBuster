@@ -84,7 +84,7 @@
   <!-- lista películas tendencia globales -->
   <ion-grid class="lista-peliculas-tendencia-global" [fixed]="true">
     <ion-row class="ion-row-scroll-horizontal">
-      <ion-col size="auto" class="pelicula-item" *ngFor="let pelicula of continuarViendo">
+      <ion-col size="auto" class="pelicula-item" *ngFor="let pelicula of peliculasTendencia">
         <img class="imagen-continuar" src="{{pelicula.Imagen}}" alt="pelicula_{{pelicula.Titulo}}"> <br>
         <ion-label>
           <p class="nombre-continuar">{{pelicula.Titulo}}</p>
