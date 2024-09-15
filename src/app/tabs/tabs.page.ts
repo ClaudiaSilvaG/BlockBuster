@@ -1,16 +1,17 @@
-import { Component, EnvironmentInjector, inject } from '@angular/core';
-import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import { triangle, ellipse, square } from 'ionicons/icons';
+import {Component, EnvironmentInjector, inject} from '@angular/core';
+import {IonIcon, IonLabel, IonTabBar, IonTabButton, IonTabs} from '@ionic/angular/standalone';
+import {addIcons} from 'ionicons';
+import {ellipse, square, triangle} from 'ionicons/icons';
 import {
   FaIconComponent,
   FaLayersComponent,
   FaLayersCounterComponent,
-  FaStackComponent, FaStackItemSizeDirective
+  FaStackComponent,
+  FaStackItemSizeDirective
 } from "@fortawesome/angular-fontawesome";
 import {faFilm, faFire, faHouseChimney} from "@fortawesome/pro-solid-svg-icons";
 import {faBagShopping, faChartLine, faUser} from "@fortawesome/pro-regular-svg-icons";
-import {BarcodeScanner} from "@capacitor-mlkit/barcode-scanning";
+import {BarcodeFormat, BarcodeScanner} from "@capacitor-mlkit/barcode-scanning";
 import {AlertController} from "@ionic/angular";
 import {Router} from "@angular/router";
 
@@ -50,12 +51,17 @@ export class TabsPage {
   }
 
   async scan(): Promise<string> {
+    const barcodeAvailable = await BarcodeScanner.isGoogleBarcodeScannerModuleAvailable();
+    if (!barcodeAvailable.available) {
+      //si no esta disponible, lo instalamos
+      await BarcodeScanner.installGoogleBarcodeScannerModule();
+    }
     const granted = await this.requestPermissions();
     if (!granted) {
       this.presentAlert();
       return "";
     }
-    const { barcodes } = await BarcodeScanner.scan();
+    const { barcodes } = await BarcodeScanner.scan({formats: [BarcodeFormat.QrCode]});
     //retorna el primer código de barras encontrado
     return barcodes[0].rawValue;
   }
