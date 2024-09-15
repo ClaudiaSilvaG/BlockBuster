@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   IonHeader,
   IonToolbar,
@@ -8,11 +8,11 @@ import {
   IonMenuButton,
   IonInfiniteScroll, IonInfiniteScrollContent, ViewWillEnter
 } from '@ionic/angular/standalone';
-import {ExploreContainerComponent} from '../explore-container/explore-container.component';
-import {ApiPeliculasService} from "../services/api-peliculas.service";
-import {Peliculas} from "../models/peliculas";
-import {NgForOf, NgOptimizedImage} from "@angular/common";
-import {CardPeliculaComponent} from "../components/card-pelicula/card-pelicula.component";
+import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { ApiPeliculasService } from "../services/api-peliculas.service";
+import { Peliculas } from "../models/peliculas";
+import { NgForOf, NgOptimizedImage } from "@angular/common";
+import { CardPeliculaComponent } from "../components/card-pelicula/card-pelicula.component";
 
 @Component({
   selector: 'app-tab2',
@@ -24,22 +24,22 @@ import {CardPeliculaComponent} from "../components/card-pelicula/card-pelicula.c
 export class Tab2Page implements ViewWillEnter {
   Peliculas: Peliculas[] = [];
 
-  offset: number= 0;
+  offset: number = 0;
   constructor(private apiPeliculas: ApiPeliculasService) {
   }
 
   ionViewWillEnter(): void {
     this.apiPeliculas.getPeliculas(30).subscribe(data => {
       this.Peliculas = data as Peliculas[];
-      this.offset+=30;
+      this.offset += 30;
     });
   }
 
 
   onIonInfinite($event: any) {
-    this.apiPeliculas.getPeliculas(30,this.offset).subscribe(data => {
+    this.apiPeliculas.getPeliculas(30, this.offset).subscribe(data => {
       this.Peliculas.push(...data as Peliculas[]);
-      this.offset+=30;
+      this.offset += 30;
       $event.target.complete();
 
     })

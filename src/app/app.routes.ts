@@ -38,7 +38,14 @@ export const routes: Routes = [
         path: 'categorias',
         loadComponent: () => import('./page/categorias/categorias.page').then(m => m.CategoriasPage)
       },
+      {
+        path: 'continuar-viendo/:id',
+        loadComponent: () => import('./page/continuar-viendo/continuar-viendo.page').then(m => m.ContinuarViendoPage)
+      },
     ]
 
-  }
+  },
+
+
+
 ];
