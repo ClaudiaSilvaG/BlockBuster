@@ -15,7 +15,7 @@ import {
 import { NgOptimizedImage } from "@angular/common";
 import { faGear } from "@fortawesome/pro-regular-svg-icons";
 import { addIcons } from 'ionicons';
-import { heart, logoApple, settingsSharp, star, key } from 'ionicons/icons';
+import { heart, logoApple, settingsSharp, star, key, personAdd } from 'ionicons/icons';
 
 
 @Component({
@@ -49,7 +49,7 @@ import { heart, logoApple, settingsSharp, star, key } from 'ionicons/icons';
 export class MenuPrincipalComponent {
 
   constructor() {
-    addIcons({ key, heart });
+    addIcons({ key, personAdd, heart });
 
   }
 
