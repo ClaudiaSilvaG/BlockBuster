@@ -13,9 +13,9 @@
       <ion-label>Lo más popular</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3" href="/tabs/tab3">
-      <fa-icon [icon]="faChartLine" size="xl"></fa-icon>
-      <ion-label>Tu actividad</ion-label>
+    <ion-tab-button (click)="onQr()">
+      <fa-icon [icon]="faQrcode" size="2xl"></fa-icon>
+      <ion-label>Qr</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="tab4" href="/tabs/tab4">
