@@ -1,0 +1,63 @@
+.login-grid {
+    height: 100vh;
+    /* Ocupar toda la altura de la pantalla */
+}
+
+.login-column {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra para darle un efecto más limpio */
+    background-color: rgb(249, 212, 0);
+    border-radius: 10px;
+}
+
+// .logo {
+//     width: 100px;
+//     height: 100px;
+//     margin-bottom: 20px;
+//     border-radius: 50%;
+//     object-fit: cover;
+// }
+.imagen-circular {
+    width: 150px;
+    /* Ajusta el tamaño según lo que se necesita */
+    height: 150px;
+    border-radius: 50%;
+    /* Esto hará que la imagen sea circular */
+    object-fit: cover;
+    /* Asegura que la imagen mantenga su forma sin distorsionarse */
+}
+
+h1.texto-bienvenido {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    color: black;
+    /* Color negro para "Bienvenido" */
+}
+
+p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.texto-registro {
+    color: black;
+    /* Color negro para "¿No tienes una cuenta?" */
+}
+
+ion-item {
+    margin-bottom: 15px;
+}
+
+ion-button {
+    --background: #3880ff;
+    --border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    .login-column {
+        max-width: 400px;
+        /* Limitar el tamaño en pantallas grandes */
+    }
+}
