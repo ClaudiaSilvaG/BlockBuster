@@ -17,11 +17,12 @@ export class ApiPeliculasService {
     params=params.set("offset",offset.toString());
     params=params.set("orderBy",orderBy.toString())
     return this.httpClient.get("https://desarrollo.codemaker.cl/api/peliculas.php",{params:params});
+
   }
   public getPeliculasById(id:string){
     var params= new HttpParams();
     params=params.set("id",id);
     params=params.set("limit",1);
     return this.httpClient.get("https://desarrollo.codemaker.cl/api/peliculas.php",{params:params});
-  }
+}
 }
