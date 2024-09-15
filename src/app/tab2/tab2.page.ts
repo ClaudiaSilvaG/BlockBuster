@@ -1,27 +1,47 @@
 import {Component, OnInit} from '@angular/core';
-import {IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton} from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButtons,
+  IonMenuButton,
+  IonInfiniteScroll, IonInfiniteScrollContent, ViewWillEnter
+} from '@ionic/angular/standalone';
+import {ExploreContainerComponent} from '../explore-container/explore-container.component';
 import {ApiPeliculasService} from "../services/api-peliculas.service";
 import {Peliculas} from "../models/peliculas";
 import {NgForOf, NgOptimizedImage} from "@angular/common";
+import {CardPeliculaComponent} from "../components/card-pelicula/card-pelicula.component";
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonButtons, IonMenuButton, NgForOf, NgOptimizedImage]
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonButtons, IonMenuButton, NgForOf, NgOptimizedImage, CardPeliculaComponent, IonInfiniteScroll, IonInfiniteScrollContent]
 })
-export class Tab2Page implements OnInit{
-  Peliculas:Peliculas[]=[];
+export class Tab2Page implements ViewWillEnter {
+  Peliculas: Peliculas[] = [];
 
-  constructor(private apiPeliculas:ApiPeliculasService) {}
+  offset: number= 0;
+  constructor(private apiPeliculas: ApiPeliculasService) {
+  }
 
-  ngOnInit(): void {
-    this.apiPeliculas.getPeliculas(30).subscribe(data=>{
-      this.Peliculas=data as Peliculas[];
+  ionViewWillEnter(): void {
+    this.apiPeliculas.getPeliculas(30).subscribe(data => {
+      this.Peliculas = data as Peliculas[];
+      this.offset+=30;
     });
   }
 
 
+  onIonInfinite($event: any) {
+    this.apiPeliculas.getPeliculas(30,this.offset).subscribe(data => {
+      this.Peliculas.push(...data as Peliculas[]);
+      this.offset+=30;
+      $event.target.complete();
+
+    })
+  }
 }
