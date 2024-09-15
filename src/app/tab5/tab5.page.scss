@@ -1,15 +1,20 @@
-img {
-
-    height: 100%;
-    width: 60%;
-    border: thick double #32a1ce;
-
-}
-
-.cover {
+.imagen-circular {
+    width: 150px;
+    /* Ajusta el tamaño según lo que se necesita */
+    height: 150px;
+    border-radius: 50%;
+    /* Esto hará que la imagen sea circular */
     object-fit: cover;
+    /* Asegura que la imagen mantenga su forma sin distorsionarse */
 }
 
-.contain {
-    object-fit: contain;
+.texto-centro {
+    margin-top: 10px;
+    /* Espacio entre la imagen y el texto */
+    font-size: 18px;
+    /* Tamaño del texto */
+    color: #fafbfc;
+    /* Color del texto */
+    text-align: center;
+    /* Asegura que el texto esté centrado */
 }
