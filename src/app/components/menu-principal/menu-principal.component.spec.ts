@@ -9,7 +9,7 @@ describe('MenuPrincipalComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuPrincipalComponent ],
+      declarations: [MenuPrincipalComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

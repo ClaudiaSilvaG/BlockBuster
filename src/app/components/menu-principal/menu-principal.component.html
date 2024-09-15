@@ -7,8 +7,7 @@
 
           <ion-menu-toggle autoHide="false">
             <ion-avatar>
-              <img routerLink="/tabs/tab5" ngSrc="../../assets/imagenes/lucho.jpg" alt="User Avatar" height="573"
-                width="535">
+              <img routerLink="/" ngSrc="../../assets/imagenes/lucho.jpg" alt="User Avatar" height="573" width="535">
             </ion-avatar>
           </ion-menu-toggle>
 
@@ -29,10 +28,19 @@
           </div>
 
           <div class="profile-section-4">
+
+            <ion-back-button></ion-back-button>
             <a routerLink="login" class="link-Login">
               <ion-menu-toggle autoHide="false">
-                Entrar
+                <ion-button size="small">
+                  <ion-icon slot="end" name="key"></ion-icon>
+
+                </ion-button>
               </ion-menu-toggle>
+
+              <!-- <ion-menu-toggle autoHide="false">
+                Entrar
+              </ion-menu-toggle> -->
             </a>
 
           </div>
