@@ -1,0 +1,16 @@
+<div class="pelicula-card">
+  <img [src]="pelicula.Imagen" alt="{{pelicula.Titulo}}" class="pelicula-imagen" (click)="onClickImagen()"/>
+  <div class="pelicula-dato">
+    <div class="pelicula-pecio"> $ {{ pelicula.Precio }}
+    </div>
+    <div class="pelicula-titulo">{{ pelicula.Titulo }}
+    </div>
+  </div>
+  <div class="pelicula-botones">
+    <fa-icon [icon]="faHeartCirclePlus"> </fa-icon>
+    <fa-icon [icon]="faCartPlus"> </fa-icon>
+
+  </div>
+
+</div>
+
