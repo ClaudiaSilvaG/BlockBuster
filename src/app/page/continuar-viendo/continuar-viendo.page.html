@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div *ngIf="pelicula">
+    <h2>{{ pelicula.nombre }}</h2>
+    <p><strong>Fecha:</strong> {{ pelicula.fecha }}</p>
+    <p><strong>Categoría:</strong> {{ pelicula.categoria }}</p>
+    <p><strong>Sinopsis:</strong> {{ pelicula.sinopsis }}</p>
+    <img [src]="pelicula.imagen" alt="{{ pelicula.nombre }}" />
+  </div>
+  <div *ngIf="!pelicula">
+    <p>No se encontró la película.</p>
+  </div>
+
+</ion-content>
