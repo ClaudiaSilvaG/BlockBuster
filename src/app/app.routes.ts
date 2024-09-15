@@ -39,14 +39,6 @@ export const routes: Routes = [
         loadComponent: () => import('./page/categorias/categorias.page').then(m => m.CategoriasPage)
       },
     ]
-<<<<<<< HEAD
+
   }
-=======
-
-  },
-
-
-
-
->>>>>>> 31f8896cd3b68e9984fa1320740a8881164d0d14
 ];
