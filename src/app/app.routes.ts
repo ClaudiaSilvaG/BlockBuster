@@ -33,10 +33,11 @@ export const routes: Routes = [
         path: 'register',
         loadComponent: () => import('./page/register/register.page').then(m => m.RegisterPage)
       },
+      {
+        path: 'continuar-viendo/:id',
+        loadComponent: () => import('./page/continuar-viendo/continuar-viendo.page').then(m => m.ContinuarViendoPage)
+      },
     ]
 
   },
-
-
-
 ];
