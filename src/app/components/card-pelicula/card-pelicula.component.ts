@@ -1,8 +1,11 @@
-import {Component, Input, input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {faCartPlus, faHeartCirclePlus} from "@fortawesome/pro-regular-svg-icons";
 import {Peliculas} from "../../models/peliculas";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {Router} from "@angular/router";
+import {WatchlistService} from "../../services/watchlist.service";
+import {faHeartCircle} from "@fortawesome/pro-solid-svg-icons";
+import {ToastController} from "@ionic/angular";
 
 @Component({
   selector: 'app-card-pelicula',
@@ -13,17 +16,48 @@ import {Router} from "@angular/router";
   ],
   standalone: true
 })
-export class CardPeliculaComponent  implements OnInit {
- @Input() pelicula!:Peliculas;
-  constructor(private router:Router) { }
+export class CardPeliculaComponent implements OnInit {
+  @Input() pelicula!: Peliculas;
+  isWatchList: boolean=false;
 
-  ngOnInit() {}
+  constructor(private router: Router, private watchlistService: WatchlistService, private toastController: ToastController) {
+  }
+
+  ngOnInit() {
+    this.watchlistService.buscarWatchlist(this.pelicula).subscribe(value => {
+      this.isWatchList = value;
+    })
+  }
 
   protected readonly faHeartCirclePlus = faHeartCirclePlus;
   protected readonly faCartPlus = faCartPlus;
 
   onClickImagen() {
-    this.router.navigate(["tabs/pelicula",this.pelicula.Id])
+    this.router.navigate(["tabs/pelicula", this.pelicula.Id]);
 
   }
+
+  onClickWatchlist() {
+    if (this.isWatchList) {
+      this.watchlistService.eliminateWatchlist(this.pelicula);
+      this.isWatchList = false;
+      this.mostrarToast("¡Se ha eliminado de tu Watchlist!")
+    } else {
+      this.watchlistService.addWatchlist(this.pelicula);
+      this.mostrarToast("¡Se ha agregado a tu Watchlist!")
+      this.isWatchList = true;
+    }
+  }
+
+  async mostrarToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000,
+      position: "bottom"
+    });
+    await toast.present()
+
+  }
+
+  protected readonly faHeartCircle = faHeartCircle;
 }

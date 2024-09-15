@@ -36,6 +36,10 @@ export const routes: Routes = [
         loadComponent: () => import('../page/pelicula/pelicula.page').then( m => m.PeliculaPage)
       },
       {
+        path: 'watchlist',
+        loadComponent: () => import('../page/watchlist/watchlist.page').then( m => m.WatchlistPage)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full',
