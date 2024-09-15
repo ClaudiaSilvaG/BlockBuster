@@ -11,15 +11,17 @@ export class ApiPeliculasService {
   ) {
   }
 
-  public getPeliculas(limite: number = 20) {
-    var params = new HttpParams();
-    params = params.set("limit", limite.toString());
-    return this.httpClient.get("https://desarrollo.codemaker.cl/api/peliculas.php", { params: params });
+  public getPeliculas(limite:number=20,offset:number=0, orderBy:string=""){
+    var params= new HttpParams();
+    params=params.set("limit",limite.toString());
+    params=params.set("offset",offset.toString());
+    params=params.set("orderBy",orderBy.toString())
+    return this.httpClient.get("https://desarrollo.codemaker.cl/api/peliculas.php",{params:params});
   }
-
-  public getPeliculasTendencia(limite: number = 20) {
-    var params = new HttpParams();
-    params = params.set("limit", limite.toString()).set("orderby", "puntuacion");
-    return this.httpClient.get("https://desarrollo.codemaker.cl/api/peliculas.php", { params: params });
-  }
+  public getPeliculasById(id:string){
+    var params= new HttpParams();
+    params=params.set("id",id);
+    params=params.set("limit",1);
+    return this.httpClient.get("https://desarrollo.codemaker.cl/api/peliculas.php",{params:params});
+}
 }
