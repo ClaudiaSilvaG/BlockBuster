@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="pelicula-botones">
-    <fa-icon [icon]="faHeartCirclePlus"> </fa-icon>
+    <fa-icon [icon]="isWatchList?faHeartCircle :faHeartCirclePlus" (click)="onClickWatchlist()"> </fa-icon>
     <fa-icon [icon]="faCartPlus"> </fa-icon>
 
   </div>
