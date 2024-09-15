@@ -1,12 +1,14 @@
 <ion-split-pane contentId="main-content" when="(min-width: 999999px)">
   <ion-menu type="overlay" contentId="main-content">
+
     <ion-content>
       <div class="profile-section">
+
         <div class="profile-section-1">
+          <!-- Imagen de Perfil-->
           <ion-menu-toggle autoHide="false">
             <ion-avatar>
-              <img routerLink="tabs/tab5" ngSrc="../../assets/imagenes/lucho.jpg" alt="User Avatar" height="573"
-                width="535">
+              <img routerLink="tabs/tab5" src="../../assets/imagenes/lucho.jpg" alt="User Avatar">
             </ion-avatar>
             <h2>Luchito</h2>
           </ion-menu-toggle>
@@ -18,6 +20,7 @@
                 Entrar
               </ion-button>
             </a>
+            <!--Boton Registrarse-->
             <a routerLink="register">
               <ion-button expand="full" shape="round" color="secondary">
                 <ion-icon slot="start" name="person-add"></ion-icon>
