@@ -1,7 +1,7 @@
 import { Component, EnvironmentInjector, inject } from '@angular/core';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { triangle, ellipse, square } from 'ionicons/icons';
+import {triangle, ellipse, square, barcode} from 'ionicons/icons';
 import {
   FaIconComponent,
   FaLayersComponent,
@@ -50,6 +50,10 @@ export class TabsPage {
 
 }
   async scan(): Promise<string> {
+    let available=await BarcodeScanner.isGoogleBarcodeScannerModuleAvailable();
+    if (!available.available){
+      await BarcodeScanner.installGoogleBarcodeScannerModule();
+    }
     const granted = await this.requestPermissions();
     if (!granted) {
       this.presentAlert();
