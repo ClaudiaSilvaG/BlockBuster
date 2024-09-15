@@ -4,15 +4,96 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title> Inicio 🎞️</ion-title>
-
-
+    <ion-title class="ion-text-center"> Inicio 🎞️</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true">
-  <swiper-container :autoplay="true" style="margin-top: 40px">
-    <swiper-slide><img src="assets/imagenes/alien.png" alt=""></swiper-slide>
-    <swiper-slide><img src="assets/imagenes/coraline.png" alt=""></swiper-slide>
-    <swiper-slide><img src="assets/imagenes/transformers.png" alt=""></swiper-slide>
+
+  <!-- barra de búsqueda -->
+  <ion-searchbar class="custom" animated="true" placeholder="Películas, Series y otros" [fixed]="true"></ion-searchbar>
+
+  <!-- title proximos estrenos -->
+  <ion-label class="titulo-proximos-lanzamientos">🔥 Próximos Estrenos 🔥</ion-label>
+
+  <!-- slider películas inicio -->
+  <swiper-container speed="500" autoplay="true">
+    <swiper-slide><img class="imagen-slider-estrenos" src="assets/imagenes/alien.png" alt="slider1"></swiper-slide>
+    <swiper-slide><img class="imagen-slider-estrenos" src="assets/imagenes/coraline.png" alt="slider2"></swiper-slide>
+    <swiper-slide><img class="imagen-slider-estrenos" src="assets/imagenes/transformers.png"
+        alt="slider3"></swiper-slide>
   </swiper-container>
+
+  <!-- lista de categorías -->
+  <ion-grid class="category-scroll-container" [fixed]="true">
+    <ion-row class="ion-row-scroll-horizontal">
+      <ion-col size="auto" *ngFor="let category of categorias">
+        <button class="category-button" [ngClass]="{'selected-button': isCategorySelected(category)}"
+          (click)="selectCategory(category)">
+          {{ category }}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- titulo continuar viendo -->
+  <ion-grid class="titulo-continuar-viendo" [fixed]="true">
+    <ion-row>
+      <ion-col class="continuar-viendo">Continuar viendo</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ver-todo">Ver todo</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- lista de películas seguir viendo -->
+  <ion-grid class="lista-peliculas-seguir-viendo" [fixed]="true">
+    <ion-row class="ion-row-scroll-horizontal">
+      <ion-col size="auto" class="pelicula-item">
+        <img class="imagen-continuar" src="assets/imagenes/continuar_shrek.png" alt="shrek"> <br>
+        <ion-label class="nombre-continuar">Shrek 2</ion-label>
+      </ion-col>
+      <ion-col size="auto" class="pelicula-item">
+        <img class="imagen-continuar" src="assets/imagenes/continuar_soul.png" alt="soul"> <br>
+        <ion-label class="nombre-continuar">Soul</ion-label>
+      </ion-col>
+      <ion-col size="auto" class="pelicula-item">
+        <img class="imagen-continuar" src="assets/imagenes/continuar_chekopete.png" alt="chekopete"> <br>
+        <ion-label class="nombre-continuar">Che Kopete</ion-label>
+      </ion-col>
+      <ion-col size="auto" class="pelicula-item">
+        <img class="imagen-continuar" src="assets/imagenes/continuar_toystory.png" alt="toystory1"> <br>
+        <ion-label class="nombre-continuar">Toy Story</ion-label>
+      </ion-col>
+      <ion-col size="auto" class="pelicula-item">
+        <img class="imagen-continuar" src="assets/imagenes/continuar_walle.png" alt="wall-e"> <br>
+        <ion-label class="nombre-continuar">Wall-E</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- titulo tendencia peliculas globales -->
+  <ion-grid class="titulo-continuar-viendo" [fixed]="true">
+    <ion-row>
+      <ion-col class="continuar-viendo">Tendencia Global</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ver-todo">Ver todo</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- lista películas tendencia globales -->
+  <ion-grid class="lista-peliculas-tendencia-global" [fixed]="true">
+    <ion-row class="ion-row-scroll-horizontal">
+      <ion-col size="auto" class="pelicula-item" *ngFor="let pelicula of peliculasTendencia">
+        <img class="imagen-continuar" src="{{pelicula.Imagen}}" alt="pelicula_{{pelicula.Titulo}}"> <br>
+        <ion-label>
+          <p class="nombre-continuar">{{pelicula.Titulo}}</p>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
 </ion-content>
