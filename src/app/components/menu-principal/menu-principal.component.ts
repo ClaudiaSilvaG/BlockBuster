@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {RouterLink} from "@angular/router";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RouterLink } from "@angular/router";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 import {
   IonAvatar,
   IonButton, IonButtons,
@@ -12,8 +12,8 @@ import {
   IonMenuToggle,
   IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar
 } from "@ionic/angular/standalone";
-import {NgOptimizedImage} from "@angular/common";
-import {faGear} from "@fortawesome/pro-regular-svg-icons";
+import { NgOptimizedImage } from "@angular/common";
+import { faGear } from "@fortawesome/pro-regular-svg-icons";
 
 
 @Component({
@@ -42,6 +42,7 @@ import {faGear} from "@fortawesome/pro-regular-svg-icons";
 
   ],
   standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MenuPrincipalComponent {
 
