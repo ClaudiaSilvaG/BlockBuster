@@ -1,16 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-buttons slot="start">
+      <!-- Botón de back que redirige a la tab de Inicio -->
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <!-- Vacío por posible cambio al titulo -->
+    <ion-title></ion-title>
   </ion-toolbar>
-
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid class="login-grid">
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      <ion-col size-md="6" size-lg="4" size-sm="12" size-xs="12" class="ion-text-center login-column">
+        <img src="../../assets/icons/icon-512.webp" alt="User Avatar" alt="User Avatar" class="imagen-circular" />
+        <h1 class="texto-bienvenido">Bienvenido</h1>
+        <p>Inicia sesión en tu cuenta</p>
 
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
-    </ion-toolbar>
+        <ion-item>
+          <ion-label position="floating">Correo Electrónico</ion-label>
+          <ion-input type="email" required></ion-input>
+        </ion-item>
 
-  </ion-header>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" class="ion-margin-top">Iniciar Sesión</ion-button>
+
+        <ion-text class="texto-registro ion-margin-top">
+          ¿No tienes una cuenta? <a [routerLink]="'/register'">Regístrate</a>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

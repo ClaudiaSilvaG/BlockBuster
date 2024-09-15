@@ -1,21 +1,34 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="success">
+  <ion-toolbar class="$blockbuster-blue">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Perfil ✨
-    </ion-title>
+    <ion-title>Perfil ✨</ion-title>
   </ion-toolbar>
-  <ion-grid>
-    <ion-row>
-      <ion-col class="ion-text-center">
-        <img src="../../assets/imagenes/luis.jpg" alt="User Avatar" alt="User Avatar" class="imagen-circular" />
-        <p class="texto-centro">Bienvenido Luchito</p>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 </ion-header>
-<ion-content [fullscreen]="true">
+
+<ion-content [fullscreen]="true" class="profile-content">
+  <div class="profile-header">
+    <img src="../../assets/imagenes/lucho.jpg" alt="User Avatar" class="profile-avatar" />
+    <p class="profile-name">Bienvenido Luchito</p>
+  </div>
+
+  <ion-button expand="full" class="profile-button">Editar Perfil</ion-button>
+  <ion-button expand="full" class="profile-button">Configuración</ion-button>
+
+  <div class="profile-info">
+    <ion-item lines="none">
+      <ion-icon name="person" slot="start" class="profile-icon"></ion-icon>
+      <ion-label class="profile-info-label">Nombre: Luchito</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-icon name="mail" slot="start" class="profile-icon"></ion-icon>
+      <ion-label class="profile-info-label">Email: luchito&#64;example.com</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-icon name="star" slot="start" class="profile-icon"></ion-icon>
+      <ion-label class="profile-info-label">Suscripción: Premium</ion-label>
+    </ion-item>
+  </div>
 </ion-content>
