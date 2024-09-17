@@ -90,6 +90,8 @@ ion-searchbar.custom {
     white-space: nowrap;
     justify-content: start;
     padding: 0.5rem 1rem 1rem 1rem;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .5));
+    mask-image: linear-gradient(to right, #121212 80%, transparent 100%);
 }
 
 .lista-peliculas-seguir-viendo::-webkit-scrollbar {
@@ -129,6 +131,8 @@ ion-searchbar.custom {
     white-space: nowrap;
     justify-content: start;
     padding: 0.5rem 1rem 1rem 1rem;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .5));
+    mask-image: linear-gradient(to right, #121212 80%, transparent 100%);
 }
 
 .lista-peliculas-tendencia-global::-webkit-scrollbar {

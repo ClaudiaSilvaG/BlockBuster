@@ -53,7 +53,6 @@ export class Tab1Page {
     // Cargamos desde la API la lista de películas en tendencia
     this.apiPeliculas.getPeliculas(15, 0, "puntuacion").subscribe((data) => {
       this.peliculasTendencia = data as any[];
-      console.log("Películas: ", this.peliculasTendencia);
     });
 
     // Cargamos desde el Array la lista de películas para continuar viendo

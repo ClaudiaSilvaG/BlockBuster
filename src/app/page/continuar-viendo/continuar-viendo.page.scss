@@ -1,0 +1,84 @@
+//--------------------------------------------------------------------------------------------------------------------//
+// ---------                                         ION COMPONENTS                                          ---------//
+// -------------------------------------------------------------------------------------------------------------------//
+.ion-grid-container {
+    padding: 1rem;
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+// ---------                                      BANNER IMAGEN STYLE                                        ---------//
+// -------------------------------------------------------------------------------------------------------------------//
+.container-imagen-banner {
+    --ion-grid-width-: 100%;
+    --ion-grid-padding: 0px;
+}
+
+.container-imagen-banner .imagen {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 18rem;
+    max-height: 24rem;
+    object-fit: cover;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .5));
+    mask-image: linear-gradient(to bottom, #121212 50%, transparent 100%);
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+// ---------                                     INFORMACIÓN PELÍCULA                                        ---------//
+// -------------------------------------------------------------------------------------------------------------------//
+.container-info-pelicula .card-info {
+    --background: transparent;
+    box-shadow: none;
+    padding: 0px;
+}
+
+.card-info .title-pelicula {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.card-info .subtitle-pelicula {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.card-info .btn-continuar-viendo {
+    --background: #ffaa00;
+    --box-shadow: none;
+    --border-radius: 0.5rem;
+    --color: #121212;
+    --ripple-color: rgba(0, 0, 0, 0.5);
+
+    margin-top: 1.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: none;
+}
+
+.card-info .sinopsis {
+    font-size: 0.9rem;
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+// ---------                                        OPCION BOTONES                                           ---------//
+// -------------------------------------------------------------------------------------------------------------------//
+.card-info .row-botones {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 0.2rem;
+}
+
+.card-info .col-botones {
+    padding: 0px;
+}
+
+.card-info .boton-opciones {
+    --background: transparent;
+    --box-shadow: none;
+    --color: white;
+
+    font-size: 0.8rem;
+    text-transform: none;
+}

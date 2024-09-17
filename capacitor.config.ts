@@ -2,16 +2,16 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.grupo.blockbuster',
-  appName: 'Blockbuster',
+  appName: 'BlockBuster',
   webDir: 'www',
   plugins: {
     SplashScreen: {
-      launchShowDuration: 2000,
-      launchAutoHide: true,
-      launchFadeOutDuration: 2000,
-      backgroundColor: "#F5D63B",
+      launchShowDuration: 1000,
+      launchAutoHide: false,
+      launchFadeOutDuration: 0,
+      backgroundColor: "#121212",
       androidSplashResourceName: "splash",
-      androidScaleType: "CENTER_CROP",
+      androidScaleType: "CENTER_INSIDE",
       showSpinner: false,
       androidSpinnerStyle: "large",
       iosSpinnerStyle: "small",
@@ -22,16 +22,16 @@ const config: CapacitorConfig = {
       useDialog: true,
     },
   },
-  android:{
-    allowMixedContent:true
+  android: {
+    allowMixedContent: true
   },
-  server:{
-    allowNavigation:[
+  server: {
+    allowNavigation: [
       "desarrollo.codemaker.cl",
       "media.themoviedb.org",
       "image.tmdb.org"
     ],
-    cleartext:true
+    cleartext: true
   }
 };
 
