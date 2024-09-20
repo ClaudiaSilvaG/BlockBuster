@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "@awesome-cordova-plugins/screen-orientation": "^6.9.0",
     "@awesome.me/kit-424812913b": "^1.0.4",
     "@capacitor-mlkit/barcode-scanning": "^6.1.0",
     "@capacitor/android": "6.1.2",

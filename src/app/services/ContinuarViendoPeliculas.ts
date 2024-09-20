@@ -5,4 +5,6 @@ export interface Pelicula {
   categoria: string;
   sinopsis: string;
   imagen: string;
+  url: string;
+  duration: string;
 }

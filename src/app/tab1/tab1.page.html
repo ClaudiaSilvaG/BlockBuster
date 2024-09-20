@@ -10,18 +10,25 @@
 <ion-content [fullscreen]="true">
 
   <!-- barra de búsqueda -->
-  <ion-searchbar class="custom" animated="true" placeholder="Películas, Series y otros" [fixed]="true"></ion-searchbar>
-
-  <!-- title proximos estrenos -->
-  <ion-label class="titulo-proximos-lanzamientos">🔥 Próximos Estrenos 🔥</ion-label>
+  <ion-grid class="ion-grid-searchbar" [fixed]="true">
+    <ion-searchbar class="custom" animated="true" placeholder="Películas, Series y otros"></ion-searchbar>
+  </ion-grid>
 
   <!-- slider películas inicio -->
-  <swiper-container speed="500" autoplay="true">
-    <swiper-slide><img class="imagen-slider-estrenos" src="assets/imagenes/alien.png" alt="slider1"></swiper-slide>
-    <swiper-slide><img class="imagen-slider-estrenos" src="assets/imagenes/coraline.png" alt="slider2"></swiper-slide>
-    <swiper-slide><img class="imagen-slider-estrenos" src="assets/imagenes/transformers.png"
-        alt="slider3"></swiper-slide>
-  </swiper-container>
+  <ion-grid fixed="true">
+    <swiper-container speed="500" class="swiper-banner-estrenos" pagination="true" pagination-clickable="true"
+      navigation="false" space-between="10" centered-slides="true" autoplay-delay="2500"
+      autoplay-disable-on-interaction="false">
+      <swiper-slide><img class="imagen" src="assets/imagenes/alien.png" alt="slider1"><br></swiper-slide>
+      <swiper-slide><img class="imagen" src="assets/imagenes/coraline.png" alt="slider2"></swiper-slide>
+      <swiper-slide><img class="imagen" src="assets/imagenes/transformers.png" alt="slider3"></swiper-slide>
+    </swiper-container>
+  </ion-grid>
+
+  <!-- titulo categorías -->
+  <ion-grid class="titulo-categorias" [fixed]="true">
+    <ion-col size="auto" class="titulo">Categorías</ion-col>
+  </ion-grid>
 
   <!-- lista de categorías -->
   <ion-grid class="category-scroll-container" [fixed]="true">

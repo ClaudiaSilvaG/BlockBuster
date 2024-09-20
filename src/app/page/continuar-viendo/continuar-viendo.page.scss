@@ -6,14 +6,16 @@
 }
 
 //--------------------------------------------------------------------------------------------------------------------//
-// ---------                                      BANNER IMAGEN STYLE                                        ---------//
+// ---------                                     INFORMACIÓN PELÍCULA                                        ---------//
 // -------------------------------------------------------------------------------------------------------------------//
-.container-imagen-banner {
-    --ion-grid-width-: 100%;
-    --ion-grid-padding: 0px;
+.container-info-pelicula .card-info {
+    --background: transparent;
+    box-shadow: none;
+    padding: 0px;
+    text-align: center;
 }
 
-.container-imagen-banner .imagen {
+.container-info-pelicula .imagen {
     max-width: 100%;
     min-width: 100%;
     min-height: 18rem;
@@ -21,15 +23,7 @@
     object-fit: cover;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, .5));
     mask-image: linear-gradient(to bottom, #121212 50%, transparent 100%);
-}
-
-//--------------------------------------------------------------------------------------------------------------------//
-// ---------                                     INFORMACIÓN PELÍCULA                                        ---------//
-// -------------------------------------------------------------------------------------------------------------------//
-.container-info-pelicula .card-info {
-    --background: transparent;
-    box-shadow: none;
-    padding: 0px;
+    border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .card-info .title-pelicula {
@@ -38,8 +32,7 @@
 }
 
 .card-info .subtitle-pelicula {
-    font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .card-info .btn-continuar-viendo {
@@ -81,4 +74,52 @@
 
     font-size: 0.8rem;
     text-transform: none;
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+// ---------                                    VIDEO PLAYER PELICULA                                        ---------//
+// -------------------------------------------------------------------------------------------------------------------//
+.video-player-pelicula {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 18rem;
+    max-height: 24rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    display: none;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .5));
+    mask-image: linear-gradient(to bottom, #121212 50%, transparent 100%);
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+// ---------                                    EFECTO FADE IN FADE OUT                                      ---------//
+// -------------------------------------------------------------------------------------------------------------------//
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadein 0.25s ease-in-out forwards;
+}
+
+.fade-out {
+    opacity: 1;
+    animation: fadeout 0.25s ease-in-out forwards;
 }
