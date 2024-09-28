@@ -20,7 +20,7 @@ export class WatchlistService {
 
   addWatchlist(pelicula: Peliculas) {
     this.getWatchlist().subscribe((watchlist: Peliculas[]) => {
-      let peliculaEncontrada = watchlist.filter(x => x.Id == pelicula.Id);
+      let peliculaEncontrada = watchlist.filter(x => x.id == pelicula.id);
       if (peliculaEncontrada.length == 0) {
         watchlist.push(pelicula);
         localStorage.setItem("Watchlist", JSON.stringify(watchlist))
@@ -30,7 +30,7 @@ export class WatchlistService {
 
   eliminateWatchlist(pelicula: Peliculas) {
     this.getWatchlist().subscribe((watchlist: Peliculas[]) => {
-      let peliculaEliminada = watchlist.findIndex(x => x.Id == pelicula.Id);
+      let peliculaEliminada = watchlist.findIndex(x => x.id == pelicula.id);
       console.log("pelicula a eliminar",peliculaEliminada);
       if (peliculaEliminada >= 0) {
         watchlist.splice(peliculaEliminada, 1)
@@ -42,7 +42,7 @@ export class WatchlistService {
   buscarWatchlist(pelicula:Peliculas):Observable<boolean>{
     return new Observable((resolve) => {
       this.getWatchlist().subscribe((watchlist: Peliculas[]) => {
-        let peliculabuscar = watchlist.findIndex(x => x.Id == pelicula.Id);
+        let peliculabuscar = watchlist.findIndex(x => x.id == pelicula.id);
         if (peliculabuscar >= 0) {
           resolve.next(true);
           return;

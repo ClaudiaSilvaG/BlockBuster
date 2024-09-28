@@ -51,8 +51,9 @@ export class Tab1Page {
   ngOnInit() {
 
     // Cargamos desde la API la lista de películas en tendencia
-    this.apiPeliculas.getPeliculas(15, 0, "puntuacion").subscribe((data) => {
+    this.apiPeliculas.getPeliculas(15, 0, "popularity").subscribe((data) => {
       this.peliculasTendencia = data as any[];
+
     });
 
     // Cargamos desde el Array la lista de películas para continuar viendo
@@ -64,5 +65,8 @@ export class Tab1Page {
     this.router.navigate(['continuar-viendo', id]);
   }
 
-
+  // Función para abrir la previsualización de la película
+  openPrevisualizarPelicula(id: string) {
+    this.router.navigate(['previsualizar-pelicula', id]);
+  }
 }

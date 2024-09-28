@@ -11,18 +11,17 @@ export class ApiPeliculasService {
   ) {
   }
 
-  public getPeliculas(limite:number=20,offset:number=0, orderBy:string=""){
-    var params= new HttpParams();
-    params=params.set("limit",limite.toString());
-    params=params.set("offset",offset.toString());
-    params=params.set("orderBy",orderBy.toString())
-    return this.httpClient.get("https://desarrollo.codemaker.cl/api/peliculas.php",{params:params});
+  public getPeliculas(limit: number = 15, offset: number = 0, orderBy: string = "") {
+    var params = new HttpParams();
+    params = params.set("limit", limit.toString());
+    params = params.set("offset", offset.toString());
+    params = params.set("orderBy", orderBy.toString());
+    return this.httpClient.get("https://lightgrey-owl-901213.hostingersite.com/api/get_peliculas.php", { params: params });
 
   }
-  public getPeliculasById(id:string){
-    var params= new HttpParams();
-    params=params.set("id",id);
-    params=params.set("limit",1);
-    return this.httpClient.get("https://desarrollo.codemaker.cl/api/peliculas.php",{params:params});
-}
+  public getPeliculaById(id: string) {
+    var params = new HttpParams();
+    params = params.set("id", id);
+    return this.httpClient.get("https://lightgrey-owl-901213.hostingersite.com/api/get_pelicula.php", { params: params });
+  }
 }

@@ -1,15 +1,9 @@
 export class Peliculas {
-  public Titulo:string="";
-  public Fecha:string="";
-  public Imagen:string="";
-  public Precio:number=0;
-  public Id: number=0;
-  public Resumen: string="";
-  public Categoria: string="";
-  public Duracion: string="";
-  public Puntuacion:number=0;
-
-
-
-
+  public id: string = "";
+  public movie_id: string = "";
+  public title: string = "";
+  public overview: string = "";
+  public poster_path: string = "";
+  public release_date: string = "";
+  public popularity: string = "";
 }

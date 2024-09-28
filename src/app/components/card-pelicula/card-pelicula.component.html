@@ -1,9 +1,8 @@
 <div class="pelicula-card">
-  <img [src]="pelicula.Imagen" alt="{{pelicula.Titulo}}" class="pelicula-imagen" (click)="onClickImagen()"/>
+  <img [src]="'https://lightgrey-owl-901213.hostingersite.com/portada_peliculas' + pelicula.poster_path"
+    alt="{{pelicula.title}}" class="pelicula-imagen" (click)="openPrevisualizarPelicula(pelicula.id)" />
   <div class="pelicula-dato">
-    <div class="pelicula-pecio"> $ {{ pelicula.Precio }}
-    </div>
-    <div class="pelicula-titulo">{{ pelicula.Titulo }}
+    <div class="pelicula-titulo">{{ pelicula.title }}
     </div>
   </div>
   <div class="pelicula-botones">
@@ -13,4 +12,3 @@
   </div>
 
 </div>
-

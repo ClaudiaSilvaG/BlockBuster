@@ -79,9 +79,11 @@
   <ion-grid class="lista-peliculas-tendencia-global" [fixed]="true">
     <ion-row class="ion-row-scroll-horizontal">
       <ion-col size="auto" class="pelicula-item" *ngFor="let pelicula of peliculasTendencia">
-        <img class="imagen-continuar" src="{{pelicula.Imagen}}" alt="pelicula_{{pelicula.Titulo}}"> <br>
+        <img (click)="openPrevisualizarPelicula(pelicula.id)" class="imagen-continuar"
+          [src]="'https://lightgrey-owl-901213.hostingersite.com/portada_peliculas' + pelicula.poster_path"
+          alt="pelicula_{{pelicula.title}}"> <br>
         <ion-label>
-          <p class="nombre-continuar">{{pelicula.Titulo}}</p>
+          <p class="nombre-continuar">{{pelicula.title}}</p>
         </ion-label>
       </ion-col>
     </ion-row>

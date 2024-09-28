@@ -10,10 +10,10 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
-import {ApiPeliculasService} from "../../services/api-peliculas.service";
-import {Peliculas} from "../../models/peliculas";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {faArrowLeft} from "@fortawesome/pro-regular-svg-icons";
+import { ApiPeliculasService } from "../../services/api-peliculas.service";
+import { Peliculas } from "../../models/peliculas";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
+import { faArrowLeft } from "@fortawesome/pro-regular-svg-icons";
 
 @Component({
   selector: 'app-pelicula',
@@ -23,16 +23,16 @@ import {faArrowLeft} from "@fortawesome/pro-regular-svg-icons";
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonMenuButton, FaIconComponent, IonCard, IonImg, IonCardHeader, IonCardTitle, IonCardContent]
 })
 export class PeliculaPage implements OnInit {
-  pelicula!:Peliculas;
+  pelicula!: Peliculas;
 
-  constructor(private apiPeliculas:ApiPeliculasService) { }
+  constructor(private apiPeliculas: ApiPeliculasService) { }
 
   ngOnInit() {
-    let id=window.location.href.split("/").pop()
-    this.apiPeliculas.getPeliculasById(id??"").subscribe((peliculas:any)=>{
-      let pelis= peliculas as Peliculas[];
-      if (pelis.length>0){
-        this.pelicula=pelis[0];
+    let id = window.location.href.split("/").pop()
+    this.apiPeliculas.getPeliculaById(id).subscribe((peliculas: any) => {
+      let pelis = peliculas as Peliculas[];
+      if (pelis.length > 0) {
+        this.pelicula = pelis[0];
       }
       else {
         window.history.back()

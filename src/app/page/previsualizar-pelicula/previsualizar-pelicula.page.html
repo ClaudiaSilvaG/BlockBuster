@@ -9,27 +9,22 @@
 
 <ion-content [fullscreen]="true">
 
-  <div *ngIf="pelicula">
+  <div *ngIf="pelicula; else loading" class="fade-in">
 
     <!-- ion grid información película -->
     <ion-grid class="ion-grid-container container-info-pelicula" [fixed]="true">
 
       <!-- card info película-->
       <ion-card class="card-info">
-        <!-- video de la película -->
-        <video #videoPlayer preload="metadata"
-          class="video-player-pelicula fade-in">
-          <source [src]="currentVideoUrl" type="video/mp4" />
-        </video>
         <!-- imagen portada -->
-        <img #imagenPortada class="imagen fade-in" alt="{{pelicula.nombre}}" [src]="pelicula.imagen" />
+        <img #imagenPortada class="imagen" alt="{{pelicula.title}}"
+          [src]="'https://lightgrey-owl-901213.hostingersite.com/portada_peliculas' + pelicula.poster_path" />
         <ion-card-header>
-          <ion-card-title class="title-pelicula">{{pelicula.nombre}}</ion-card-title>
-          <ion-card-subtitle class="subtitle-pelicula">{{pelicula.fecha}} • {{pelicula.categoria}} •
-            {{pelicula.duration}}</ion-card-subtitle>
-          <ion-button class="btn-continuar-viendo" (click)="reproducirPelicula(pelicula.url)">
-            <ion-icon slot="start" name="{{stateIconPelicula}}"></ion-icon>
-            {{stateTextPelicula}}
+          <ion-card-title class="title-pelicula">{{pelicula.title}}</ion-card-title>
+          <ion-card-subtitle class="subtitle-pelicula">{{pelicula.release_date}}</ion-card-subtitle>
+          <ion-button class="btn-continuar-viendo">
+            <ion-icon slot="start" name="play"></ion-icon>
+            Ver película
           </ion-button>
         </ion-card-header>
 
@@ -37,7 +32,7 @@
         <ion-card-content class="sinopsis">
 
           <!-- sinopsis -->
-          {{pelicula.sinopsis}}
+          {{pelicula.overview}}
           <!-- ion row opcion botones -->
 
           <ion-row class="row-botones">
@@ -60,8 +55,12 @@
     </ion-grid>
 
   </div>
-  <div *ngIf="!pelicula">
-    <p>No se encontró la película.</p>
-  </div>
+
+  <ng-template #loading>
+    <div *ngIf="!pelicula" class="loading-placeholder">
+      <ion-spinner></ion-spinner>
+    </div>
+  </ng-template>
+
 
 </ion-content>

@@ -29,17 +29,17 @@ export class Tab2Page implements ViewWillEnter {
   }
 
   ionViewWillEnter(): void {
-    this.apiPeliculas.getPeliculas(30).subscribe(data => {
+    this.apiPeliculas.getPeliculas(15).subscribe(data => {
       this.Peliculas = data as Peliculas[];
-      this.offset += 30;
+      this.offset += 15;
     });
   }
 
 
   onIonInfinite($event: any) {
-    this.apiPeliculas.getPeliculas(30, this.offset).subscribe(data => {
+    this.apiPeliculas.getPeliculas(15, this.offset).subscribe(data => {
       this.Peliculas.push(...data as Peliculas[]);
-      this.offset += 30;
+      this.offset += 15;
       $event.target.complete();
 
     })

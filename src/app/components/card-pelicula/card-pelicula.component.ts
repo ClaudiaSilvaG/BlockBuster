@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {faCartPlus, faHeartCirclePlus} from "@fortawesome/pro-regular-svg-icons";
-import {Peliculas} from "../../models/peliculas";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {Router} from "@angular/router";
-import {WatchlistService} from "../../services/watchlist.service";
-import {faHeartCircle} from "@fortawesome/pro-solid-svg-icons";
-import {ToastController} from "@ionic/angular";
+import { Component, Input, OnInit } from '@angular/core';
+import { faCartPlus, faHeartCirclePlus } from "@fortawesome/pro-regular-svg-icons";
+import { Peliculas } from "../../models/peliculas";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
+import { Router } from "@angular/router";
+import { WatchlistService } from "../../services/watchlist.service";
+import { faHeartCircle } from "@fortawesome/pro-solid-svg-icons";
+import { ToastController } from "@ionic/angular";
 
 @Component({
   selector: 'app-card-pelicula',
@@ -18,7 +18,7 @@ import {ToastController} from "@ionic/angular";
 })
 export class CardPeliculaComponent implements OnInit {
   @Input() pelicula!: Peliculas;
-  isWatchList: boolean=false;
+  isWatchList: boolean = false;
 
   constructor(private router: Router, private watchlistService: WatchlistService, private toastController: ToastController) {
   }
@@ -32,9 +32,8 @@ export class CardPeliculaComponent implements OnInit {
   protected readonly faHeartCirclePlus = faHeartCirclePlus;
   protected readonly faCartPlus = faCartPlus;
 
-  onClickImagen() {
-    this.router.navigate(["tabs/pelicula", this.pelicula.Id]);
-
+  openPrevisualizarPelicula(id: string) {
+    this.router.navigate(['previsualizar-pelicula', id]);
   }
 
   onClickWatchlist() {
