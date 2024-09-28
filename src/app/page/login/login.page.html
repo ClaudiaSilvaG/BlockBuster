@@ -1,38 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <!-- Botón de back que redirige a la tab de Inicio -->
+      <!-- Botón de retroceso que regresa a la pantalla anterior -->
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <!-- Vacío por posible cambio al titulo -->
-    <ion-title></ion-title>
+    <ion-title>Login</ion-title> <!-- Título de la página -->
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-grid class="login-grid">
-    <ion-row class="ion-justify-content-center ion-align-items-center">
-      <ion-col size-md="6" size-lg="4" size-sm="12" size-xs="12" class="ion-text-center login-column">
-        <img src="../../assets/icons/icon-512.webp" alt="User Avatar" alt="User Avatar" class="imagen-circular" />
-        <h1 class="texto-bienvenido">Bienvenido</h1>
-        <p>Inicia sesión en tu cuenta</p>
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <ion-col class="ion-text-center login-column">
+      <img src="../../assets/icons/icon-512.webp" alt="User Avatar" class="imagen-circular" />
+      <h1 class="texto-bienvenido">Bienvenido</h1>
+      <p class="subtitulo">Inicia sesión en tu cuenta</p>
 
-        <ion-item>
-          <ion-label position="floating">Correo Electrónico</ion-label>
-          <ion-input type="email" required></ion-input>
-        </ion-item>
+      <!-- Campo para ingresar el correo electrónico -->
+      <ion-item class="input-item">
+        <ion-label>Correo Electrónico</ion-label>
+        <ion-input type="email" required></ion-input>
+      </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password" required></ion-input>
-        </ion-item>
+      <!-- Campo para ingresar la contraseña -->
+      <ion-item class="input-item">
+        <ion-label>Contraseña</ion-label>
+        <ion-input type="password" required></ion-input>
+      </ion-item>
 
-        <ion-button expand="block" class="ion-margin-top">Iniciar Sesión</ion-button>
+      <!-- Botón para iniciar sesión -->
+      <ion-button expand="block" class="ion-margin-top">Iniciar Sesión</ion-button>
 
-        <ion-text class="texto-registro ion-margin-top">
-          ¿No tienes una cuenta? <a [routerLink]="'/register'">Regístrate</a>
-        </ion-text>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+      <!-- Texto para redirigir a la página de registro si no tiene cuenta -->
+      <ion-text class="texto-registro ion-margin-top">
+        ¿No tienes una cuenta? <a [routerLink]="'/register'">Regístrate</a>
+      </ion-text>
+    </ion-col>
+  </div>
 </ion-content>
