@@ -3,19 +3,16 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title class="ion-text-center"> Inicio 🎞️</ion-title>
+    <ion-title class="ion-text-center title-toolbar">
+      <img class="img-title-toolbar" src="../../assets/imagenes/toolbar_blockbuster.png">
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
-  <!-- barra de búsqueda -->
-  <ion-grid class="ion-grid-searchbar" [fixed]="true">
-    <ion-searchbar class="custom" animated="true" placeholder="Películas, Series y otros"></ion-searchbar>
-  </ion-grid>
+<ion-content [fullscreen]="true" class="fade-in">
 
   <!-- slider películas inicio -->
-  <ion-grid fixed="true">
+  <ion-grid [fixed]="true">
     <swiper-container speed="500" class="swiper-banner-estrenos" pagination="true" pagination-clickable="true"
       navigation="false" space-between="10" centered-slides="true" autoplay-delay="2500"
       autoplay-disable-on-interaction="false">
@@ -68,7 +65,7 @@
   <!-- titulo tendencia peliculas globales -->
   <ion-grid class="titulo-continuar-viendo" [fixed]="true">
     <ion-row>
-      <ion-col class="continuar-viendo">Tendencia Global</ion-col>
+      <ion-col class="continuar-viendo">Nuevos Lanzamientos</ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="ver-todo">Ver todo</ion-col>

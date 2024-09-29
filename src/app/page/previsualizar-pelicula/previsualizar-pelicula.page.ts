@@ -5,7 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton 
 import { Router } from '@angular/router';
 import { Peliculas } from '../../models/peliculas';
 import { ApiPeliculasService } from '../../services/api-peliculas.service';
-import { play, bookmark } from 'ionicons/icons';
+import { play, bookmark, cart } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 
 @Component({
@@ -23,7 +23,7 @@ export class PrevisualizarPeliculaPage implements OnInit {
   constructor(
     private router: Router,
     private apiPelicula: ApiPeliculasService) {
-    addIcons({ play, bookmark })
+    addIcons({ play, bookmark, cart })
   }
 
   ngOnInit() {

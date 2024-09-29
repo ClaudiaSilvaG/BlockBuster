@@ -33,7 +33,7 @@
 }
 
 .card-info .subtitle-pelicula {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .card-info .btn-continuar-viendo {
@@ -44,6 +44,19 @@
     --ripple-color: rgba(0, 0, 0, 0.5);
 
     margin-top: 1.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: none;
+}
+
+.card-info .btn-arrendar-pelicula {
+    --background: #427ff8;
+    --box-shadow: none;
+    --border-radius: 0.5rem;
+    --color: #121212;
+    --ripple-color: rgba(0, 0, 0, 0.5);
+
+    margin-top: 0.65rem;
     font-size: 1rem;
     font-weight: 600;
     text-transform: none;

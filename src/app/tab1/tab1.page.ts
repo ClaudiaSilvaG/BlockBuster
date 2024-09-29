@@ -51,9 +51,8 @@ export class Tab1Page {
   ngOnInit() {
 
     // Cargamos desde la API la lista de películas en tendencia
-    this.apiPeliculas.getPeliculas(15, 0, "popularity").subscribe((data) => {
+    this.apiPeliculas.getPeliculas(15, 0, "release_date").subscribe((data) => {
       this.peliculasTendencia = data as any[];
-
     });
 
     // Cargamos desde el Array la lista de películas para continuar viendo

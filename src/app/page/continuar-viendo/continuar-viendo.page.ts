@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/angular/standalone';
 import { ActivatedRoute } from '@angular/router';
-import { play, bookmark, heart, pause } from 'ionicons/icons';
+import { play, bookmark, heart, pause, folderOpen } from 'ionicons/icons';
 import { Pelicula } from 'src/app/services/ContinuarViendoPeliculas';
 import { ContinuarViendoPeliculas } from 'src/app/services/api-continuarviendo.service';
 import { addIcons } from 'ionicons';
@@ -31,7 +31,7 @@ export class ContinuarViendoPage implements OnInit {
     private route: ActivatedRoute,
     private continarViendoPelicula: ContinuarViendoPeliculas
   ) {
-    addIcons({ play, bookmark, heart, pause });
+    addIcons({ play, bookmark, heart, pause, folderOpen });
   }
 
   // Cuando se inicie la vista ejecutamos:

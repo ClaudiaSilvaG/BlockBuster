@@ -6,4 +6,7 @@ export class Peliculas {
   public poster_path: string = "";
   public release_date: string = "";
   public popularity: string = "";
+  public price: string = "";
+  public category: string = "";
+  public duration: string = "";
 }
