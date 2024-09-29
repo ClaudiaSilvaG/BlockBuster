@@ -3,20 +3,39 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-
-    <ion-title class="ion-text-center">
-      Lo más popular🔥
+    <ion-title class="ion-text-center title-toolbar">
+      <img class="img-title-toolbar" src="../../assets/imagenes/toolbar_blockbuster.png">
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" [fullscreen]="true">
-  <h2 class="section-title">PELÍCULAS</h2>
-  <p class="section-subtitle">Vive toda la emoción de las películas en estreno.</p>
+<ion-content [fullscreen]="true" class="fade-in">
+
+  <!-- titulo tendencias actuales -->
+  <ion-grid class="grid-padding titulo-tendencias" [fixed]="true">
+    <ion-row>
+      <ion-col class="ion-text-center">🔥 Tendencias actuales 🔥</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- lista de películas más populares -->
+  <ion-grid class="grid-padding lista-peliculas-tendencia-global" [fixed]="true">
+    <ion-row class="grid-peliculas">
+      <ion-col size="auto" (click)="openPrevisualizarPelicula(pelicula.id)" class="pelicula-item"
+        *ngFor="let pelicula of Peliculas">
+        <img class="imagen-continuar"
+          [src]="'https://lightgrey-owl-901213.hostingersite.com/portada_peliculas' + pelicula.poster_path"
+          alt="pelicula_{{pelicula.title}}">
+        <ion-label class="nombre-continuar">{{pelicula.title}}</ion-label>
+        <ion-label class="categoria">{{pelicula.category}}</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <div class="peliculas-grid">
     <app-card-pelicula *ngFor="let pelicula of Peliculas" [pelicula]="pelicula"></app-card-pelicula>
-    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)"> <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
   </div>
 
