@@ -2,10 +2,10 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { CommonModule } from '@angular/common';
-import { ApiPeliculasService } from '../services/api-peliculas.service';
 import { Router } from '@angular/router';
 import { ContinuarViendoPeliculas } from '../services/api-continuarviendo.service';
 import { Pelicula } from '../services/ContinuarViendoPeliculas';
+import { BlockbusterapiService } from '../services/blockbusterapi.service';
 
 @Component({
   selector: 'app-tab1',
@@ -18,7 +18,7 @@ import { Pelicula } from '../services/ContinuarViendoPeliculas';
 export class Tab1Page {
 
   constructor( // Inyectamos los servicios
-    private apiPeliculas: ApiPeliculasService,
+    private blockbusterAPI: BlockbusterapiService,
     private router: Router,
     private continuarViendoPeliculas: ContinuarViendoPeliculas
   ) { }
@@ -51,8 +51,8 @@ export class Tab1Page {
   ngOnInit() {
 
     // Cargamos desde la API la lista de películas en tendencia
-    this.apiPeliculas.getPeliculas(15, 0, "release_date").subscribe((data) => {
-      this.peliculasTendencia = data as any[];
+    this.blockbusterAPI.getPeliculas(15, 0, "release_date").subscribe((pelicula) => {
+      this.peliculasTendencia = pelicula;
     });
 
     // Cargamos desde el Array la lista de películas para continuar viendo

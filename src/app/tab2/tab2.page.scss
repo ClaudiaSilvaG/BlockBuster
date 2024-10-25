@@ -37,7 +37,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: normal;
   height: 100%;
 }
 
@@ -55,13 +55,6 @@
   font-size: 0.9rem;
   color: white;
   margin-top: 0.5rem;
-}
-
-.lista-peliculas-tendencia-global .categoria {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #7f7d7d;
-  margin-top: 0.25rem;
 }
 
 //--------------------------------------------------------------------------------------------------------------------//
@@ -95,4 +88,14 @@
 .fade-out {
   opacity: 1;
   animation: fadeout 0.25s ease-in-out forwards;
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+// ---------                                    RESOLUCION PARA COMPUTADORAS                                 ---------//
+// -------------------------------------------------------------------------------------------------------------------//
+
+@media (min-width: 768px) {
+  .grid-peliculas {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
