@@ -1,39 +1,49 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <!-- Botón de retroceso que regresa a la pantalla anterior -->
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Login</ion-title> <!-- Título de la página -->
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <!-- Botón de retroceso -->
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Inicia sesión</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="login-container">
-    <ion-col class="ion-text-center login-column">
-      <img src="../../assets/icons/icon-512.webp" alt="User Avatar" class="imagen-circular" />
-      <h1 class="texto-bienvenido">Bienvenido</h1>
-      <p class="subtitulo">Inicia sesión en tu cuenta</p>
 
-      <!-- Campo para ingresar el correo electrónico -->
-      <ion-item class="input-item">
-        <ion-label>Correo Electrónico</ion-label>
-        <ion-input type="email" required></ion-input>
-      </ion-item>
+<ion-content>
+    <div class="container">
+        <div class="image-container">
+            <img class="img-title-toolbar" src="../../assets/imagenes/toolbar_blockbuster.png" alt="Logo">
+        </div>
+        <div class="container-login-box">
+            <div class="login-box">
 
-      <!-- Campo para ingresar la contraseña -->
-      <ion-item class="input-item">
-        <ion-label>Contraseña</ion-label>
-        <ion-input type="password" required></ion-input>
-      </ion-item>
 
-      <!-- Botón para iniciar sesión -->
-      <ion-button expand="block" class="ion-margin-top">Iniciar Sesión</ion-button>
+                <ion-item lines="none" class="input-item">
+                    <ion-input type="email" placeholder="Email "></ion-input>
+                </ion-item>
 
-      <!-- Texto para redirigir a la página de registro si no tiene cuenta -->
-      <ion-text class="texto-registro ion-margin-top">
-        ¿No tienes una cuenta? <a [routerLink]="'/register'">Regístrate</a>
-      </ion-text>
-    </ion-col>
-  </div>
+                <ion-item lines="none" class="input-item">
+                    <ion-input type="password" placeholder="Contraseña"></ion-input>
+                </ion-item>
+
+                <ion-button expand="block" class="login-button">
+                    Iniciar Sesión
+                </ion-button>
+
+                <!--olvidaste tu contraseña -->
+                <ion-text color="medium" class="forgot-password">
+                    ¿Olvidaste tu contraseña?
+                </ion-text>
+
+                <!-- regístrate -->
+                <div class="register-container">
+                    <span>¿No tienes una cuenta?</span>
+                    <a href="#" class="register-link">Regístrate</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 </ion-content>
