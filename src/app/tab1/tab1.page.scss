@@ -1,42 +1,49 @@
-//--------------------------------------------------------------------------------------------------------------------//
-// ---------                                          BARRA DE BÚSQUEDA                                      ---------//
-// -------------------------------------------------------------------------------------------------------------------//
-ion-searchbar.custom {
-    --background: #181818;
-    --color: #fff;
-    --placeholder-color: #fff;
-    --icon-color: #fff;
-    --clear-button-color: #fff;
-    --cancel-button-color: #fff;
-    --border-radius: 0.5rem;
-    margin-top: 1rem;
-}
-
-/*--------------------------  TITULO PROXIMO LANZAMIENTO --------------------------*/
-.titulo-proximos-lanzamientos {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+/*--------------------------  IMAGEN TOOLBAR BLOCKBUSTER  --------------------------*/
+.img-title-toolbar {
+    padding-top: 0.25rem;
+    min-height: 1.75rem;
+    max-height: 1.75rem;
 }
 
 /*--------------------------  IMAGENES SLIDER PROXIMOS ESTRENOS --------------------------*/
-.imagen-slider-estrenos {
-    width: 100%;
-    max-height: 30rem;
-    object-fit: cover;
+.swiper-banner-estrenos {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .5));
+    mask-image: linear-gradient(to right, #121212 90%, transparent 100%);
+    --swiper-pagination-color: #ffaa00;
+    --swiper-pagination-bullet-inactive-color: white;
 }
 
-/*--------------------------  SCROLL BAR CATEGORIAS  --------------------------*/
+.swiper-banner-estrenos .imagen {
+    width: 100%;
+    min-height: 10rem;
+    max-height: 25rem;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+/*--------------------------  TITULO CATEGORÍAS --------------------------*/
+.titulo-categorias {
+    font-weight: bold;
+    font-size: small;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.titulo-categorias .titulo {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+/*--------------------------  SCROLL HORIZONTAL CATEGORIAS  --------------------------*/
 .category-scroll-container {
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
     justify-content: start;
-    padding: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
 .category-scroll-container::-webkit-scrollbar {
@@ -49,16 +56,20 @@ ion-searchbar.custom {
 }
 
 .category-button {
-    background-color: transparent;
+    background-color: #1f1f1f;
+    padding: 0.5rem;
     color: #7f7d7d;
-    min-width: fit-content;
-    margin-right: 1rem;
+    min-width: 5rem;
+    max-width: max-content;
     white-space: nowrap;
-    font-weight: bold;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 1rem;
+    margin-right: 0.5rem;
 }
 
 .selected-button {
+    background-color: #ffaa00;
     color: white;
 }
 
@@ -90,6 +101,8 @@ ion-searchbar.custom {
     white-space: nowrap;
     justify-content: start;
     padding: 0.5rem 1rem 1rem 1rem;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .5));
+    mask-image: linear-gradient(to right, #121212 80%, transparent 100%);
 }
 
 .lista-peliculas-seguir-viendo::-webkit-scrollbar {
@@ -129,6 +142,8 @@ ion-searchbar.custom {
     white-space: nowrap;
     justify-content: start;
     padding: 0.5rem 1rem 1rem 1rem;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .5));
+    mask-image: linear-gradient(to right, #121212 80%, transparent 100%);
 }
 
 .lista-peliculas-tendencia-global::-webkit-scrollbar {
@@ -159,4 +174,37 @@ ion-searchbar.custom {
     text-overflow: ellipsis;
     white-space: nowrap;
     color: white;
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+// ---------                                    EFECTO FADE IN FADE OUT                                      ---------//
+// -------------------------------------------------------------------------------------------------------------------//
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadein 0.25s ease-in-out forwards;
+}
+
+.fade-out {
+    opacity: 1;
+    animation: fadeout 0.25s ease-in-out forwards;
 }

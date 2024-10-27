@@ -1,31 +1,46 @@
 <ion-split-pane contentId="main-content" when="(min-width: 999999px)">
   <ion-menu type="overlay" contentId="main-content">
 
-
     <ion-content>
       <div class="profile-section">
+
         <div class="profile-section-1">
-          <ion-avatar>
-            <img ngSrc="assets/usua.jpg" alt="User Avatar" height="877" width="719">
-          </ion-avatar>
-          <h2>usuario</h2>
+          <!-- Imagen de Perfil-->
+          <ion-menu-toggle autoHide="false">
+            <ion-avatar>
+              <img routerLink="tabs/tab5" src="../../assets/imagenes/lucho.jpg" alt="User Avatar">
+            </ion-avatar>
+            <h2>Luchito</h2>
+          </ion-menu-toggle>
+          <!-- Botones de Login y Registro -->
+          <div class="login-register-section">
+            <a routerLink="login">
+              <ion-button expand="full" shape="round" color="primary">
+                <ion-icon slot="start" name="key"></ion-icon>
+               Iniciar Sesión
+              </ion-button>
+            </a>
+            <!--Boton Registrarse-->
+            <a routerLink="register">
+              <ion-button expand="full" shape="round" color="secondary">
+                <ion-icon slot="start" name="person-add"></ion-icon>
+                Registrarse
+              </ion-button>
+            </a>
+          </div>
         </div>
+
         <div class="profile-section-2">
           <div class="profile-section-3">
-            <a class="icono-menu">
+            <!-- <a class="icono-menu">
               <fa-icon [icon]="faGear"></fa-icon>
-            </a>
-
+            </a> -->
           </div>
           <div class="profile-section-4">
-            <a class="link-editar">
-             Editar
-            </a>
-
+            <ion-back-button></ion-back-button>
           </div>
         </div>
       </div>
-
 
       <ion-list>
         <ion-menu-toggle autoHide="false">
@@ -40,13 +55,11 @@
           </ion-item>
         </ion-menu-toggle>
 
-
         <ion-menu-toggle autoHide="false">
           <ion-item button routerLink="/tabs/tab2">
             <ion-label>🤩 Novedades</ion-label>
           </ion-item>
         </ion-menu-toggle>
-
 
         <ion-menu-toggle autoHide="false">
           <ion-item button routerLink="/series">
@@ -65,12 +78,9 @@
             <ion-label>🗃️ Categorías</ion-label>
           </ion-item>
         </ion-menu-toggle>
-
-
       </ion-list>
     </ion-content>
   </ion-menu>
 
   <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-split-pane>
-

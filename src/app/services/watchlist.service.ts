@@ -1,58 +1,65 @@
-import {Injectable} from '@angular/core';
-import {Observable} from "rxjs";
-import {Peliculas} from "../models/peliculas";
+import { Injectable } from '@angular/core';
+import { Observable } from "rxjs";
 
+interface Peliculas {
+  id: string;
+  movie_id: string;
+  title: string;
+  overview: string;
+  release_date: string;
+  poster_path: string;
+  popularity: string;
+  price: string;
+  category: string;
+  duration: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class WatchlistService {
+
+  constructor() { }
+
   getWatchlist(): Observable<Peliculas[]> {
-    return new Observable((resolve) => {
-      let watchlist = localStorage.getItem("Watchlist") ?? "";
-      if (watchlist == "") {
-        resolve.next([]);
-        return;
+    return new Observable((observer) => {
+      const watchlist = localStorage.getItem("Watchlist");
+      if (!watchlist) {
+        observer.next([]);
+      } else {
+        observer.next(JSON.parse(watchlist));
       }
-      resolve.next(JSON.parse(watchlist))
-    })
+      observer.complete();
+    });
   }
 
   addWatchlist(pelicula: Peliculas) {
     this.getWatchlist().subscribe((watchlist: Peliculas[]) => {
-      let peliculaEncontrada = watchlist.filter(x => x.Id == pelicula.Id);
-      if (peliculaEncontrada.length == 0) {
+      const peliculaEncontrada = watchlist.some(x => x.id === pelicula.id);
+      if (!peliculaEncontrada) {
         watchlist.push(pelicula);
-        localStorage.setItem("Watchlist", JSON.stringify(watchlist))
+        localStorage.setItem("Watchlist", JSON.stringify(watchlist));
       }
-    })
+    });
   }
 
   eliminateWatchlist(pelicula: Peliculas) {
     this.getWatchlist().subscribe((watchlist: Peliculas[]) => {
-      let peliculaEliminada = watchlist.findIndex(x => x.Id == pelicula.Id);
-      console.log("pelicula a eliminar",peliculaEliminada);
-      if (peliculaEliminada >= 0) {
-        watchlist.splice(peliculaEliminada, 1)
-        localStorage.setItem("Watchlist", JSON.stringify(watchlist))
+      const index = watchlist.findIndex(x => x.id === pelicula.id);
+      if (index >= 0) {
+        watchlist.splice(index, 1);
+        localStorage.setItem("Watchlist", JSON.stringify(watchlist));
       }
-    })
+    });
   }
 
-  buscarWatchlist(pelicula:Peliculas):Observable<boolean>{
-    return new Observable((resolve) => {
+  buscarWatchlist(pelicula: Peliculas): Observable<boolean> {
+    return new Observable((observer) => {
       this.getWatchlist().subscribe((watchlist: Peliculas[]) => {
-        let peliculabuscar = watchlist.findIndex(x => x.Id == pelicula.Id);
-        if (peliculabuscar >= 0) {
-          resolve.next(true);
-          return;
-        }
-        resolve.next(false);
-        return;
-      })
-    })
-  }
-
-  constructor() {
+        const encontrado = watchlist.some(x => x.id === pelicula.id);
+        observer.next(encontrado);
+        observer.complete();
+      });
+    });
   }
 }

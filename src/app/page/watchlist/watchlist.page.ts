@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import {
   IonButtons,
   IonContent,
@@ -12,11 +12,10 @@ import {
   IonToolbar,
   ViewWillEnter
 } from '@ionic/angular/standalone';
-import {WatchlistService} from "../../services/watchlist.service";
-import {Peliculas} from "../../models/peliculas";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {faTrashCan} from "@fortawesome/pro-solid-svg-icons";
-import {faArrowLeft} from "@fortawesome/pro-regular-svg-icons";
+import { WatchlistService } from "../../services/watchlist.service";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
+import { faTrashCan } from "@fortawesome/pro-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/pro-regular-svg-icons";
 
 @Component({
   selector: 'app-watchlist',
@@ -26,7 +25,8 @@ import {faArrowLeft} from "@fortawesome/pro-regular-svg-icons";
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonList, IonItem, IonThumbnail, IonLabel, IonItemSliding, IonItemOptions, IonItemOption, FaIconComponent, IonButtons, IonMenuButton]
 })
 export class WatchlistPage implements ViewWillEnter {
-  peliculas: Peliculas[] = []
+
+  peliculas: any = [];
 
   constructor(private watchlistservice: WatchlistService) {
   }
@@ -36,15 +36,14 @@ export class WatchlistPage implements ViewWillEnter {
   }
 
   recargar() {
-    this.watchlistservice.getWatchlist().subscribe((peliculas: Peliculas[]) => {
-      this.peliculas = peliculas;
-
-    })
+    this.watchlistservice.getWatchlist().subscribe((pelis => {
+      this.peliculas = pelis;
+    }));
   }
 
   protected readonly faTrashCan = faTrashCan;
 
-  onClickEliminar(pelicula: Peliculas) {
+  onClickEliminar(pelicula: any) {
     this.watchlistservice.eliminateWatchlist((pelicula))
     this.recargar()
   }
@@ -52,6 +51,6 @@ export class WatchlistPage implements ViewWillEnter {
   protected readonly faArrowLeft = faArrowLeft;
 
   onClickVolver() {
-     window.history.back()
+    window.history.back()
   }
 }

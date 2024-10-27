@@ -1,0 +1,73 @@
+.login-container {
+  padding: 20px; /* Espacio alrededor de la columna de login */
+  display: flex; /* Usar flexbox para centrar contenido */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  height: 100%; /* Asegurarse de que ocupe toda la altura */
+}
+
+.login-column {
+  padding: 20px; /* Espacio interno de la columna */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto más limpio */
+  background-color: rgb(249, 212, 0); /* Color de fondo amarillo */
+  border-radius: 15px; /* Bordes redondeados */
+  margin: 0 auto; /* Centrar horizontalmente */
+  width: 100%; /* Ancho completo */
+  max-width: 400px; /* Limitar el ancho máximo */
+  overflow: hidden; /* Evitar desbordamiento */
+  
+  display: flex; /* Usar flexbox para centrar contenido */
+  flex-direction: column; /* Colocar hijos en columna */
+  align-items: center; /* Centrar los hijos horizontalmente */
+}
+
+.imagen-circular {
+  width: 150px; /* Ancho de la imagen circular */
+  height: 150px; /* Alto de la imagen circular */
+  border-radius: 50%; /* Hacer la imagen circular */
+  object-fit: cover; /* Mantener la proporción de la imagen */
+  margin-bottom: 15px; /* Espacio debajo del avatar */
+}
+
+.texto-bienvenido {
+  font-size: 24px; /* Tamaño del texto del encabezado */
+  font-weight: bold; /* Negrita para el encabezado */
+  margin: 10px 0; /* Espaciado del encabezado */
+  color: #333; /* Color más oscuro para mejor contraste */
+}
+
+.subtitulo {
+  margin-bottom: 20px; /* Espaciado debajo del subtítulo */
+  color: #666; /* Color gris para el texto */
+}
+
+.input-item {
+  margin-bottom: 15px; /* Espaciado uniforme entre inputs */
+  width: 100%; /* Asegurar que ocupen todo el ancho */
+}
+
+ion-label {
+  color: #333; /* Color oscuro para mejor visibilidad */
+  font-size: 16px; /* Tamaño de fuente legible */
+  white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+}
+
+ion-item {
+  width: 100%; /* Asegurar que el item ocupe todo el ancho */
+}
+
+ion-input {
+  width: 100%; /* Asegurar que el input ocupe todo el ancho del ion-item */
+}
+
+ion-button {
+  --background: #3880ff; /* Color de fondo del botón */
+  --border-radius: 10px; /* Bordes redondeados del botón */
+  font-weight: bold; /* Texto más destacado */
+  margin-top: 10px; /* Margen superior */
+}
+
+.texto-registro {
+  color: #333; /* Color más oscuro para el texto de registro */
+  margin-top: 20px; /* Espacio superior del texto de registro */
+}

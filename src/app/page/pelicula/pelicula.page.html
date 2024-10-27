@@ -1,35 +1,33 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button  ></ion-menu-button>
-      </ion-buttons>
-      <ion-title> Película 🎞️</ion-title>
-      <ion-buttons slot="end">
-        <a class="boton-volver" (click)="onClickVolver()">
-          <fa-icon [icon]="faArrowLeft"></fa-icon>
-        </a>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Película 🎞️</ion-title>
+    <ion-buttons slot="end">
+      <a class="boton-volver" (click)="onClickVolver()">
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
+      </a>
 
-      </ion-buttons>
+    </ion-buttons>
 
 
-    </ion-toolbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-card>
-    <ion-img [src]="pelicula?.Imagen" class="imagen-pelicula"></ion-img>
+    <ion-img *ngIf="pelicula.poster_path" [src]="'https://lightgrey-owl-901213.hostingersite.com/portada_peliculas' + pelicula.poster_path"
+      class="imagen-pelicula"></ion-img>
 
     <ion-card-header>
-      <ion-card-title>{{ pelicula?.Titulo }}</ion-card-title>
+      <ion-card-title>{{ pelicula.title }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <p><strong>Resumen: </strong>{{ pelicula?.Resumen }}</p>
-      <p><strong>Fecha de estreno: </strong>{{ pelicula?.Fecha }}</p>
-      <p><strong>Duración: </strong>{{ pelicula?.Duracion }}</p>
-      <p><strong>Categoría: </strong>{{ pelicula?.Categoria }}</p>
-      <p><strong>Puntuación: </strong>{{ pelicula?.Puntuacion }}</p>
-      <p><strong>Precio: </strong>${{ pelicula?.Precio}}</p>
+      <p><strong>Resumen: </strong>{{ pelicula.overview }}</p>
+      <p><strong>Fecha de estreno: </strong>{{ pelicula.release_date }}</p>
+      <p><strong>Puntuación: </strong>{{ pelicula.popularity }}</p>
     </ion-card-content>
   </ion-card>
 

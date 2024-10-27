@@ -2,7 +2,10 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { CommonModule } from '@angular/common';
-import { ApiPeliculasService } from '../services/api-peliculas.service';
+import { Router } from '@angular/router';
+import { ContinuarViendoPeliculas } from '../services/api-continuarviendo.service';
+import { Pelicula } from '../services/ContinuarViendoPeliculas';
+import { BlockbusterapiService } from '../services/blockbusterapi.service';
 
 @Component({
   selector: 'app-tab1',
@@ -13,6 +16,12 @@ import { ApiPeliculasService } from '../services/api-peliculas.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Tab1Page {
+
+  constructor( // Inyectamos los servicios
+    private blockbusterAPI: BlockbusterapiService,
+    private router: Router,
+    private continuarViendoPeliculas: ContinuarViendoPeliculas
+  ) { }
 
   //--------------------------------------------------------------------------------------------------------------------//
   // ---------                                  CARGA Y SELECCIÓN DE CATEGORÍA                                 ---------//
@@ -33,18 +42,30 @@ export class Tab1Page {
   }
 
   //--------------------------------------------------------------------------------------------------------------------//
-  // ---------                      PROMESA PARA SOLICITAR PELÍCULAS TENDENCIAS GLOBALES                       ---------//
+  // ---------                             FUNCIONES PARA CONTINUAR VIENDO PELICULA                            ---------//
   // -------------------------------------------------------------------------------------------------------------------//
-  peliculasTendencia: any[] = []; // Lista para almacenar películas continuar viendo
+  listContinuarViendo: Pelicula[] = []; // Lista para almacenar películas continuar viendo
 
-  constructor(private apiPeliculas: ApiPeliculasService) { } // Inyectamos el servicio
+  peliculasTendencia: any[] = []; // Lista para almacenar peliculas en tendencia
 
   ngOnInit() {
-    this.apiPeliculas.getPeliculas(15, 0, "puntuacion").subscribe((data) => {
-      this.peliculasTendencia = data as any[];
-      console.log("Películas: ", this.peliculasTendencia);
+
+    // Cargamos desde la API la lista de películas en tendencia
+    this.blockbusterAPI.getPeliculas(15, 0, "release_date").subscribe((pelicula) => {
+      this.peliculasTendencia = pelicula;
     });
+
+    // Cargamos desde el Array la lista de películas para continuar viendo
+    this.listContinuarViendo = this.continuarViendoPeliculas.getPeliculas();
   }
 
+  // Función para abrir la página continuar viendo
+  openContinueMovie(id: number) {
+    this.router.navigate(['continuar-viendo', id]);
+  }
 
+  // Función para abrir la previsualización de la película
+  openPrevisualizarPelicula(id: string) {
+    this.router.navigate(['previsualizar-pelicula', id]);
+  }
 }
