@@ -21,6 +21,8 @@ export class PrevisualizarPeliculaPage implements OnInit {
 
   pelicula: any = [];
 
+  linkPelicula: string = "";
+
   constructor(
     private router: Router,
     private blockbusterAPI: BlockbusterapiService
@@ -37,6 +39,8 @@ export class PrevisualizarPeliculaPage implements OnInit {
       
       if (Object.keys(peli).length > 4) {
         this.pelicula = peli;
+        this.linkPelicula = 'https://lightgrey-owl-901213.hostingersite.com/portada_peliculas' + this.pelicula.poster_path;
+        
       } else {
         this.router.navigate(['/']);
       }

@@ -18,7 +18,7 @@
       <ion-card class="card-info">
         <!-- imagen portada -->
         <img #imagenPortada class="imagen" alt="{{pelicula.title}}"
-          [src]="'https://lightgrey-owl-901213.hostingersite.com/portada_peliculas' + pelicula.poster_path" />
+          [src]="linkPelicula" />
         <ion-card-header>
           <ion-card-title class="title-pelicula">{{pelicula.title}}</ion-card-title>
           <ion-card-subtitle class="subtitle-pelicula">{{pelicula.release_date}} • {{pelicula.category}} •

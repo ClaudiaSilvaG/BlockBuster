@@ -1,99 +1,187 @@
 /*--------------------------  IMAGEN TOOLBAR BLOCKBUSTER  --------------------------*/
 .img-title-toolbar {
-    padding-top: 0.25rem;
-    min-height: 1.75rem;
-    max-height: 1.75rem;
+  padding-top: 0.25rem;
+  min-height: 1.75rem;
+  max-height: 1.75rem;
 }
 
-// Colores inspirados en Blockbuster
-.custom-toolbar {
-    $blockbuster-blue: #003F6C;
+.grid-padding {
+  padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
-$blockbuster-yellow: #F7E300;
-$white: #FFFFFF;
-$dark-gray: #333333;
+//--------------------------------------------------------------------------------------------------------------------//
+// ---------                                    NUEVO PERFIL DE USUARIO                                      ---------//
+// -------------------------------------------------------------------------------------------------------------------//
+/*--------------------------  GRID PADDING  --------------------------*/
 
-/* Estilos generales */
-.profile-content {
-    --background: #121212;
-    /* Fondo oscuro similar a Netflix */
-    color: #fff;
+.perfil-container {
+  --background: #121212;
+  color: #ffffff;
 }
 
-.profile-header {
-    text-align: center;
-    padding: 16px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%), url('../../assets/imagenes/lucho.jpg') no-repeat center center;
-    background-size: cover;
-    border-bottom: 1px solid #333;
+.perfil-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: url("../../assets/imagenes/lucha_jara_portada.png");
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, .5));
+  mask-image: linear-gradient(to bottom, #121212 75%, transparent 100%);
+  background-size: cover;
+  border-radius: 1rem 1rem 0 0;
+  background-position: center;
+  color: #ffffff;
 }
 
-.profile-avatar {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    border: 4px solid #fff;
-    margin-bottom: 10px;
+.perfil-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffaa00;
+  margin-bottom: 1rem;
 }
 
-.profile-name {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
+.perfil-info {
+  text-align: center;
 }
 
-.profile-button {
-    margin: 10px 0;
-    --background: #003F6C;
-    /* Color rojo estilo Netflix */
-    --color: #fff;
+.perfil-nombre {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
 }
 
-.profile-info {
-    margin: 20px 10px;
-    border-top: 1px solid #333;
-    padding-top: 10px;
+.perfil-username {
+  font-size: 1rem;
+  color: #ffffff;
+  margin: 0.2rem 0;
 }
 
-.profile-icon {
-    color: #F7E300;
+.perfil-bio {
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.profile-info-label {
-    color: #fff;
-    font-size: 16px;
+.btn-editar-perfil {
+  --background: #ffaa00;
+  --box-shadow: none;
+  --border-radius: 0.5rem;
+  --color: #121212;
+  --ripple-color: rgba(0, 0, 0, 0.5);
+
+  margin-top: 1.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.perfil-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.stat-item p {
+  font-size: 0.8rem;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+.perfil-segment-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.perfil-segment-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.perfil-segment {
+  background-color: #1f1f1f;
+  margin: 1rem 0;
+  display: inline-flex;
+  width: max-content;
+}
+
+ion-segment-button {
+  --color-checked: #ffaa00;
+  --indicator-color: #ffaa00;
+  color: #7f7d7d;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.perfil-content {
+  display: flex;
+  gap: 10px;
+  padding: 1rem;
+}
+
+.columna {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.foto-grande {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.foto-pequena {
+  width: 100%;
+  height: 48%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 //--------------------------------------------------------------------------------------------------------------------//
 // ---------                                    EFECTO FADE IN FADE OUT                                      ---------//
 // -------------------------------------------------------------------------------------------------------------------//
 @keyframes fadein {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeout {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 .fade-in {
-    opacity: 0;
-    animation: fadein 0.25s ease-in-out forwards;
+  opacity: 0;
+  animation: fadein 0.25s ease-in-out forwards;
 }
 
 .fade-out {
-    opacity: 1;
-    animation: fadeout 0.25s ease-in-out forwards;
+  opacity: 1;
+  animation: fadeout 0.25s ease-in-out forwards;
 }
