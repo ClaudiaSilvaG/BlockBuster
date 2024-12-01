@@ -17,10 +17,6 @@ register()
 })
 export class AppComponent {
   constructor(library: FaIconLibrary, private menu: MenuController, private platform: Platform) {
-    // library.addIconPacks(fas)
-    // library.addIconPacks(far)
-    // library.addIconPacks(fad)
-    // library.addIcons(...all)
     this.initializeApp();
   }
 

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-
 import { MenuPrincipalComponent } from './menu-principal.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('MenuPrincipalComponent', () => {
   let component: MenuPrincipalComponent;
@@ -9,8 +9,13 @@ describe('MenuPrincipalComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [MenuPrincipalComponent],
-      imports: [IonicModule.forRoot()]
+      imports: [MenuPrincipalComponent], // Importamos el componente standalone
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { snapshot: { params: {} } } // Mock de ActivatedRoute
+        }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(MenuPrincipalComponent);
@@ -18,7 +23,7 @@ describe('MenuPrincipalComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('debería crear el componente', () => {
+    expect(component).toBeTruthy(); // Verificamos que el componente se cree correctamente
   });
 });
