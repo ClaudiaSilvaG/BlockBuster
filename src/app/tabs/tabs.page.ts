@@ -43,7 +43,7 @@ export class TabsPage {
       if (results.startsWith("appbb://pelicula/")){
         let id=results.split("/").pop()
         this.router.navigate([
-          "/tabs/pelicula",id
+          "/previsualizar-pelicula",id
         ])
       }
     })
