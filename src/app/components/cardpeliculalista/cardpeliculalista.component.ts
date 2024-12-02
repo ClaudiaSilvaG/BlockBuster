@@ -1,5 +1,17 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Peliculas} from "../../models/peliculas";
+
+interface Peliculas {
+  id: string
+  movie_id: string
+  title: string
+  overview: string
+  release_date: string
+  poster_path: string
+  popularity: string
+  price: string
+  category: string
+  duration: string
+}
 
 @Component({
   standalone:true,
@@ -7,11 +19,9 @@ import {Peliculas} from "../../models/peliculas";
   templateUrl: './cardpeliculalista.component.html',
   styleUrls: ['./cardpeliculalista.component.scss'],
 })
-export class CardpeliculalistaComponent  implements OnInit {
+export class CardpeliculalistaComponent {
   @Input()pelicula!:Peliculas;
 
   constructor() { }
-
-  ngOnInit() {}
 
 }

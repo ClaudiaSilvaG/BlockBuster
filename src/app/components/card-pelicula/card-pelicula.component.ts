@@ -5,7 +5,6 @@ import { Router } from "@angular/router";
 import { WatchlistService } from "../../services/watchlist.service";
 import { faHeartCircle } from "@fortawesome/pro-solid-svg-icons";
 import { ToastController } from "@ionic/angular";
-import { PeliculasPage } from 'src/app/page/peliculas/peliculas.page';
 
 @Component({
   selector: 'app-card-pelicula',
@@ -17,14 +16,14 @@ import { PeliculasPage } from 'src/app/page/peliculas/peliculas.page';
   standalone: true
 })
 export class CardPeliculaComponent implements OnInit {
-  
+
   @Input() pelicula: any;
 
   isWatchList: boolean = false;
 
   constructor(
-    private router: Router, 
-    private watchlistService: WatchlistService, 
+    private router: Router,
+    private watchlistService: WatchlistService,
     private toastController: ToastController) {
   }
 
